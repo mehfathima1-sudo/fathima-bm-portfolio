@@ -1743,4 +1743,119 @@ footer { border-top: 1px solid var(--line); }
   display: block;
   object-fit: cover;
   object-position: center;
+}/* ========================================
+   BEYOND THE CODE
+======================================== */
+
+.beyond-skills {
+  margin-top: 80px;
+  padding-top: 55px;
+  border-top: 1px solid var(--line);
+}
+
+.beyond-label {
+  margin-bottom: 14px;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.beyond-skills > h3 {
+  max-width: 700px;
+  margin-bottom: 18px;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.beyond-intro {
+  max-width: 700px;
+  margin-bottom: 45px;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.beyond-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid var(--line);
+}
+
+.beyond-item {
+  min-height: 210px;
+  padding: 30px 30px 30px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.beyond-item:nth-child(odd) {
+  padding-right: 40px;
+  border-right: 1px solid var(--line);
+}
+
+.beyond-item:nth-child(even) {
+  padding-left: 40px;
+}
+
+.beyond-item > span {
+  display: block;
+  margin-bottom: 38px;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.beyond-item h4 {
+  margin: 0 0 10px;
+  color: var(--text);
+  font-size: 1.15rem;
+}
+
+.beyond-item p {
+  max-width: 430px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+  .beyond-skills {
+    margin-top: 60px;
+    padding-top: 45px;
+  }
+
+  .beyond-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .beyond-item,
+  .beyond-item:nth-child(odd),
+  .beyond-item:nth-child(even) {
+    min-height: auto;
+    padding: 26px 0;
+    border-right: 0;
+  }
+
+  .beyond-item > span {
+    margin-bottom: 20px;
+  }
+}
+/* Small personal insight under each creative area */
+
+.beyond-proof {
+  display: block;
+  max-width: 430px;
+
+  margin-top: 18px;
+  padding-top: 16px;
+
+  border-top: 1px solid var(--line);
+
+  color: var(--muted);
+
+  font-size: 0.78rem;
+  line-height: 1.6;
+
+  font-style: italic;
 }
