@@ -61,3 +61,23 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 }
 
 document.querySelector('#year').textContent = new Date().getFullYear();
+// =========================================
+// PERSONAL COMPASS — EXPAND / COLLAPSE
+// =========================================
+
+const compassToggle = document.getElementById("compass-toggle");
+const personalCompass = document.getElementById("personal-compass");
+
+if (compassToggle && personalCompass) {
+  compassToggle.addEventListener("click", () => {
+    const isOpen = personalCompass.classList.toggle("compass-open");
+
+    compassToggle.setAttribute("aria-expanded", isOpen);
+
+    const arrow = compassToggle.querySelector(".compass-toggle-arrow");
+
+    if (arrow) {
+      arrow.textContent = isOpen ? "↑" : "↓";
+    }
+  });
+}
