@@ -2416,3 +2416,1746 @@ footer { border-top: 1px solid var(--line); }
     margin-bottom: 24px;
   }
 }
+/* =========================================
+   PREMIUM PERSONAL COMPASS EFFECTS
+========================================= */
+
+.character-grid-full .character-card {
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.character-grid-full .character-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(37, 99, 235, 0.06),
+      transparent 45%
+    );
+
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.character-grid-full .character-card:hover {
+  transform: translateY(-6px);
+  border-color: #bfd6f3;
+  box-shadow: 0 18px 40px rgba(23, 54, 93, 0.10);
+}
+
+.character-grid-full .character-card:hover::before {
+  opacity: 1;
+}
+
+.character-grid-full .character-icon {
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease;
+}
+
+.character-grid-full .character-card:hover .character-icon {
+  transform: scale(1.08) rotate(-3deg);
+  background: #e1efff;
+}
+/* =========================================
+   NAV OPTION 3 — GLASS FLOAT
+========================================= */
+
+header,
+.site-header,
+.navbar {
+  animation: glassNavEnter 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* NAV LINKS */
+
+nav a {
+  position: relative;
+  padding: 8px 13px;
+  border-radius: 10px;
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Remove underline animation from previous option */
+
+nav a::after {
+  display: none;
+}
+
+/* Premium floating hover */
+
+nav a:hover {
+  color: #2563eb;
+
+  background: rgba(37, 99, 235, 0.07);
+
+  box-shadow:
+    0 8px 22px rgba(37, 99, 235, 0.08);
+
+  transform: translateY(-3px);
+}
+
+/* Page-load animation */
+
+@keyframes glassNavEnter {
+
+  from {
+    opacity: 0;
+    transform: translateY(-14px) scale(0.985);
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+/* =========================================================
+   CINEMATIC SIGNATURE INTRO
+========================================================= */
+
+.signature-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  animation:
+    introDisappear 0.9s
+    cubic-bezier(0.76, 0, 0.24, 1)
+    3.1s forwards;
+}
+
+
+/* =========================================================
+   TECH GRID
+========================================================= */
+
+.intro-grid {
+  position: absolute;
+  inset: -50%;
+
+  opacity: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(37, 99, 235, 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(37, 99, 235, 0.045) 1px,
+      transparent 1px
+    );
+
+  background-size: 55px 55px;
+
+  transform:
+    perspective(800px)
+    rotateX(65deg)
+    translateY(30%);
+
+  animation:
+    gridAppear 1.2s ease 0.15s forwards,
+    gridMove 7s linear infinite;
+}
+
+
+/* =========================================================
+   GLOWING ORBS
+========================================================= */
+
+.intro-orb {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(20px);
+
+  pointer-events: none;
+}
+
+.intro-orb-one {
+  width: 420px;
+  height: 420px;
+
+  left: 12%;
+  top: 18%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(37, 99, 235, 0.15),
+      rgba(37, 99, 235, 0.03) 45%,
+      transparent 70%
+    );
+
+  opacity: 0;
+
+  animation:
+    orbReveal 1.3s ease 0.4s forwards,
+    orbFloat 5s ease-in-out infinite;
+}
+
+.intro-orb-two {
+  width: 300px;
+  height: 300px;
+
+  right: 10%;
+  bottom: 8%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(96, 165, 250, 0.12),
+      transparent 68%
+    );
+
+  opacity: 0;
+
+  animation:
+    orbReveal 1.4s ease 0.65s forwards,
+    orbFloatTwo 6s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   TOP LINE
+========================================================= */
+
+.signature-line {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 100%;
+  height: 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #2563eb,
+      #60a5fa,
+      #2563eb,
+      transparent
+    );
+
+  transform:
+    translateX(-50%)
+    scaleX(0);
+
+  transform-origin: center;
+
+  animation:
+    lineDraw 0.9s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    forwards;
+}
+
+
+/* =========================================================
+   CENTER CONTENT
+========================================================= */
+
+.signature-name-wrap {
+  position: relative;
+  z-index: 4;
+
+  width: min(1000px, 88%);
+
+  text-align: center;
+}
+
+
+/* STATUS */
+
+.intro-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 24px;
+
+  color: #72819a;
+
+  font-size: 0.62rem;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  opacity: 0;
+
+  transform: translateY(10px);
+
+  animation:
+    statusReveal 0.6s ease 0.3s forwards;
+}
+
+.intro-status span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #2563eb;
+
+  box-shadow:
+    0 0 0 6px rgba(37, 99, 235, 0.08);
+
+  animation:
+    statusPulse 1.4s ease-in-out infinite;
+}
+
+
+/* KICKER */
+
+.signature-kicker {
+  margin: 0 0 15px;
+
+  color: #2563eb;
+
+  font-size: 0.68rem;
+  font-weight: 800;
+
+  letter-spacing: 0.4em;
+
+  opacity: 0;
+
+  transform: translateY(15px);
+
+  animation:
+    kickerReveal 0.7s ease 0.55s forwards;
+}
+
+
+/* =========================================================
+   NAME MASK
+========================================================= */
+
+.signature-name-mask {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 8px 10px 18px;
+}
+
+
+/* NAME */
+
+.signature-name {
+  position: relative;
+
+  margin: 0;
+
+  color: #102548 !important;
+
+  -webkit-text-fill-color: #102548 !important;
+  -webkit-text-stroke: 0 !important;
+
+  font-size: clamp(4rem, 9vw, 9rem);
+
+  font-weight: 750;
+
+  line-height: 0.92;
+
+  letter-spacing: -0.07em;
+
+  transform: translateY(115%);
+
+  animation:
+    nameRise 1.15s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    0.7s forwards;
+}
+
+
+/* BLUE LIGHT SWEEP */
+
+.signature-name::after {
+  content: "Fathima B M";
+
+  position: absolute;
+
+  inset: 0;
+
+  color: transparent;
+
+  background:
+    linear-gradient(
+      100deg,
+      transparent 30%,
+      #2563eb 47%,
+      #60a5fa 50%,
+      #2563eb 53%,
+      transparent 70%
+    );
+
+  background-size: 250% 100%;
+  background-position: 150% 0;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  pointer-events: none;
+
+  animation:
+    nameSweep 1.2s ease
+    1.6s forwards;
+}
+
+
+/* =========================================================
+   SUBLINE
+========================================================= */
+
+.signature-subline {
+  margin-top: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  opacity: 0;
+
+  animation:
+    subReveal 0.7s ease
+    1.25s forwards;
+}
+
+.signature-subline span {
+  width: 65px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #a9c7ee
+    );
+}
+
+.signature-subline span:last-child {
+  transform: rotate(180deg);
+}
+
+.signature-subline p {
+  margin: 0;
+
+  color: #71819a;
+
+  font-size: 0.61rem;
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+}
+
+
+/* =========================================================
+   CORNER DETAILS
+========================================================= */
+
+.intro-corner {
+  position: absolute;
+
+  z-index: 4;
+
+  color: #7d8da5;
+
+  font-size: 0.57rem;
+
+  letter-spacing: 0.14em;
+
+  opacity: 0;
+
+  animation:
+    cornerReveal 0.8s ease
+    1.25s forwards;
+}
+
+.intro-corner span {
+  color: #2563eb;
+  font-weight: 800;
+}
+
+.intro-corner p {
+  margin: 5px 0 0;
+}
+
+.intro-corner-left {
+  left: 45px;
+  bottom: 38px;
+
+  text-align: left;
+}
+
+.intro-corner-right {
+  right: 45px;
+  bottom: 38px;
+
+  text-align: right;
+}
+
+
+/* =========================================================
+   BOTTOM PROGRESS LINE
+========================================================= */
+
+.intro-bottom-line {
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 0;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #60a5fa
+    );
+
+  animation:
+    progressLine 2.7s
+    cubic-bezier(0.2, 0.7, 0.3, 1)
+    0.25s forwards;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes lineDraw {
+
+  from {
+    transform:
+      translateX(-50%)
+      scaleX(0);
+  }
+
+  to {
+    transform:
+      translateX(-50%)
+      scaleX(1);
+  }
+
+}
+
+
+@keyframes gridAppear {
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+@keyframes gridMove {
+
+  from {
+    background-position:
+      0 0,
+      0 0;
+  }
+
+  to {
+    background-position:
+      0 55px,
+      55px 0;
+  }
+
+}
+
+
+@keyframes orbReveal {
+
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
+
+
+@keyframes orbFloat {
+
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform:
+      translate3d(30px, -20px, 0);
+  }
+
+}
+
+
+@keyframes orbFloatTwo {
+
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform:
+      translate3d(-25px, 18px, 0);
+  }
+
+}
+
+
+@keyframes statusReveal {
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+@keyframes statusPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.3);
+  }
+
+}
+
+
+@keyframes kickerReveal {
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+@keyframes nameRise {
+
+  0% {
+    transform:
+      translateY(115%)
+      skewY(4deg);
+  }
+
+  100% {
+    transform:
+      translateY(0)
+      skewY(0);
+  }
+
+}
+
+
+@keyframes nameSweep {
+
+  from {
+    background-position: 150% 0;
+  }
+
+  to {
+    background-position: -70% 0;
+  }
+
+}
+
+
+@keyframes subReveal {
+
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+@keyframes cornerReveal {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+@keyframes progressLine {
+
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   CINEMATIC EXIT
+========================================================= */
+
+@keyframes introDisappear {
+
+  0% {
+    opacity: 1;
+
+    clip-path:
+      inset(0 0 0 0);
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+
+    clip-path:
+      inset(49.5% 0 49.5% 0);
+
+    visibility: hidden;
+
+    pointer-events: none;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .signature-name {
+    font-size:
+      clamp(3.5rem, 17vw, 6rem);
+  }
+
+  .signature-subline {
+    gap: 10px;
+  }
+
+  .signature-subline span {
+    width: 25px;
+  }
+
+  .signature-subline p {
+    font-size: 0.5rem;
+    letter-spacing: 0.13em;
+  }
+
+  .intro-corner {
+    display: none;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .signature-intro {
+    display: none;
+  }
+
+}
+/* =========================================================
+   IMPOSSIBLE GEOMETRY PORTAL — PRE INTRO
+========================================================= */
+
+.portal-preintro {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(37, 99, 235, 0.09),
+      transparent 34%
+    ),
+    #ffffff;
+
+  perspective: 1200px;
+
+  animation:
+    portalSceneExit 0.9s
+    cubic-bezier(0.76, 0, 0.24, 1)
+    3.2s forwards;
+}
+
+.portal-world {
+  position: relative;
+
+  width: 340px;
+  height: 340px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform-style: preserve-3d;
+
+  opacity: 0;
+
+  animation:
+    portalWorldReveal 0.7s ease 0.15s forwards,
+    portalWorldRotate 4.6s ease-in-out 0.5s infinite;
+}
+
+/* -------------------------
+   RINGS
+------------------------- */
+
+.portal-ring {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  border: 1px solid rgba(37, 99, 235, 0.5);
+
+  transform-style: preserve-3d;
+
+  box-shadow:
+    0 0 25px rgba(37, 99, 235, 0.08),
+    inset 0 0 25px rgba(37, 99, 235, 0.04);
+
+  opacity: 0;
+}
+
+.portal-ring-1 {
+  width: 260px;
+  height: 260px;
+
+  margin-left: -130px;
+  margin-top: -130px;
+
+  transform:
+    rotateX(68deg)
+    rotateZ(45deg);
+
+  animation:
+    portalRingReveal 0.8s ease 0.3s forwards,
+    portalRingSpinOne 6s linear 0.6s infinite;
+}
+
+.portal-ring-2 {
+  width: 205px;
+  height: 205px;
+
+  margin-left: -102.5px;
+  margin-top: -102.5px;
+
+  transform:
+    rotateY(68deg)
+    rotateZ(45deg);
+
+  animation:
+    portalRingReveal 0.8s ease 0.45s forwards,
+    portalRingSpinTwo 5.2s linear 0.8s infinite reverse;
+}
+
+.portal-ring-3 {
+  width: 150px;
+  height: 150px;
+
+  margin-left: -75px;
+  margin-top: -75px;
+
+  transform:
+    rotateX(52deg)
+    rotateY(52deg)
+    rotateZ(45deg);
+
+  animation:
+    portalRingReveal 0.8s ease 0.6s forwards,
+    portalRingSpinThree 4.5s linear 1s infinite;
+}
+
+.portal-ring-4 {
+  width: 95px;
+  height: 95px;
+
+  margin-left: -47.5px;
+  margin-top: -47.5px;
+
+  transform:
+    rotateX(72deg)
+    rotateY(-52deg)
+    rotateZ(45deg);
+
+  border-color: rgba(96, 165, 250, 0.75);
+
+  box-shadow:
+    0 0 30px rgba(37, 99, 235, 0.16),
+    inset 0 0 24px rgba(96, 165, 250, 0.1);
+
+  animation:
+    portalRingReveal 0.8s ease 0.75s forwards,
+    portalRingSpinFour 3.8s linear 1.1s infinite reverse;
+}
+
+/* -------------------------
+   CORE
+------------------------- */
+
+.portal-core {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 22px;
+  height: 22px;
+
+  margin-left: -11px;
+  margin-top: -11px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      #ffffff 0%,
+      #93c5fd 25%,
+      #2563eb 65%,
+      #1d4ed8 100%
+    );
+
+  box-shadow:
+    0 0 12px #ffffff,
+    0 0 25px rgba(96, 165, 250, 0.9),
+    0 0 55px rgba(37, 99, 235, 0.45),
+    0 0 100px rgba(37, 99, 235, 0.2);
+
+  opacity: 0;
+
+  animation:
+    portalCoreReveal 0.5s ease 0.85s forwards,
+    portalCorePulse 1.3s ease-in-out 1.2s infinite;
+}
+
+.portal-core span {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 12px #ffffff;
+}
+
+/* -------------------------
+   CROSS LINES
+------------------------- */
+
+.portal-cross {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(37, 99, 235, 0.32),
+      transparent
+    );
+
+  opacity: 0;
+
+  animation:
+    portalCrossReveal 0.7s ease 1s forwards;
+}
+
+.portal-cross-x {
+  width: 410px;
+  height: 1px;
+
+  margin-left: -205px;
+
+  transform:
+    rotateZ(45deg);
+}
+
+.portal-cross-y {
+  width: 410px;
+  height: 1px;
+
+  margin-left: -205px;
+
+  transform:
+    rotateZ(-45deg);
+}
+
+/* -------------------------
+   STATUS TEXT
+------------------------- */
+
+.portal-status {
+  position: absolute;
+  left: 50%;
+  top: calc(50% + 205px);
+
+  width: min(420px, 88vw);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0;
+
+  transform: translateX(-50%);
+
+  text-align: center;
+}
+
+
+/* INITIALIZING PORTFOLIO */
+
+.portal-status-label {
+  color: #2563eb;
+
+  font-size: 0.58rem;
+  font-weight: 800;
+
+  letter-spacing: 0.28em;
+
+  opacity: 0;
+
+  animation:
+    portalInfoReveal 0.5s ease
+    0.65s forwards;
+}
+
+
+/* CHANGING WORD AREA */
+
+.portal-status-cycle {
+  position: relative;
+
+  width: 100%;
+  height: 32px;
+
+  margin-top: 10px;
+
+  overflow: hidden;
+}
+
+.portal-status-cycle span {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 100%;
+
+  color: #102548;
+
+  font-size: 0.82rem;
+  font-weight: 750;
+
+  letter-spacing: 0.18em;
+
+  opacity: 0;
+
+  transform:
+    translate(-50%, 15px);
+
+  filter: blur(5px);
+}
+
+
+/* DEVELOPER */
+
+.portal-status-cycle span:nth-child(1) {
+  animation:
+    portalWord 0.65s ease
+    0.9s forwards;
+}
+
+
+/* DESIGNER */
+
+.portal-status-cycle span:nth-child(2) {
+  animation:
+    portalWord 0.65s ease
+    1.45s forwards;
+}
+
+
+/* CREATOR */
+
+.portal-status-cycle span:nth-child(3) {
+  animation:
+    portalWord 0.65s ease
+    2s forwards;
+}
+
+
+/* PROBLEM SOLVER */
+
+.portal-status-cycle span:nth-child(4) {
+  animation:
+    portalFinalWord 0.7s ease
+    2.55s forwards;
+}
+
+
+/* NAME + YEAR */
+
+.portal-status small {
+  margin-top: 5px;
+
+  color: #8a9ab2;
+
+  font-size: 0.5rem;
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+
+  opacity: 0;
+
+  animation:
+    portalInfoReveal 0.5s ease
+    1.1s forwards;
+}
+
+
+/* =========================================================
+   PORTFOLIO INFO ANIMATIONS
+========================================================= */
+
+@keyframes portalInfoReveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes portalWord {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, 15px);
+
+    filter: blur(5px);
+  }
+
+  25% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, 0);
+
+    filter: blur(0);
+  }
+
+  70% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, 0);
+
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -15px);
+
+    filter: blur(5px);
+  }
+}
+
+
+@keyframes portalFinalWord {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translate(-50%, 15px);
+
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translate(-50%, 0);
+
+    filter: blur(0);
+  }
+}
+
+/* =========================================================
+   PORTAL ANIMATIONS
+========================================================= */
+
+@keyframes portalWorldReveal {
+  from {
+    opacity: 0;
+    transform:
+      scale(0.35)
+      rotateX(20deg);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      scale(1)
+      rotateX(0);
+  }
+}
+
+@keyframes portalWorldRotate {
+  0%,
+  100% {
+    transform:
+      rotateX(-6deg)
+      rotateY(-8deg)
+      rotateZ(0deg);
+  }
+
+  50% {
+    transform:
+      rotateX(7deg)
+      rotateY(9deg)
+      rotateZ(8deg);
+  }
+}
+
+@keyframes portalRingReveal {
+  from {
+    opacity: 0;
+    filter: blur(7px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes portalRingSpinOne {
+  from {
+    transform:
+      rotateX(68deg)
+      rotateZ(45deg);
+  }
+
+  to {
+    transform:
+      rotateX(68deg)
+      rotateZ(405deg);
+  }
+}
+
+@keyframes portalRingSpinTwo {
+  from {
+    transform:
+      rotateY(68deg)
+      rotateZ(45deg);
+  }
+
+  to {
+    transform:
+      rotateY(68deg)
+      rotateZ(405deg);
+  }
+}
+
+@keyframes portalRingSpinThree {
+  from {
+    transform:
+      rotateX(52deg)
+      rotateY(52deg)
+      rotateZ(45deg);
+  }
+
+  to {
+    transform:
+      rotateX(52deg)
+      rotateY(52deg)
+      rotateZ(405deg);
+  }
+}
+
+@keyframes portalRingSpinFour {
+  from {
+    transform:
+      rotateX(72deg)
+      rotateY(-52deg)
+      rotateZ(45deg);
+  }
+
+  to {
+    transform:
+      rotateX(72deg)
+      rotateY(-52deg)
+      rotateZ(405deg);
+  }
+}
+
+@keyframes portalCoreReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.25);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes portalCorePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes portalCrossReveal {
+  from {
+    opacity: 0;
+    transform:
+      scaleX(0);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes portalStatusReveal {
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      translateY(0);
+  }
+}
+
+/* -------------------------
+   FINAL CAMERA PULL-IN
+------------------------- */
+
+@keyframes portalSceneExit {
+  0% {
+    opacity: 1;
+  }
+
+  55% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      scale(4.8);
+
+    filter:
+      blur(18px);
+
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+/* -------------------------
+   MOBILE
+------------------------- */
+
+@media (max-width: 600px) {
+
+  .portal-world {
+    width: 260px;
+    height: 260px;
+
+    transform:
+      scale(0.82);
+  }
+
+  .portal-status {
+    top: calc(50% + 185px);
+
+    font-size: 0.52rem;
+    letter-spacing: 0.2em;
+  }
+}
+
+/* -------------------------
+   REDUCED MOTION
+------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .portal-preintro {
+    display: none;
+  }
+
+}
+/* Blue scanning light */
+
+.nav-scanner {
+  position: absolute;
+  left: -25%;
+  bottom: 0;
+
+  width: 22%;
+  height: 1px;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(37, 99, 235, 0.35),
+      #2563eb,
+      #93c5fd,
+      transparent
+    );
+
+  box-shadow:
+    0 0 8px rgba(37, 99, 235, 0.45),
+    0 0 18px rgba(37, 99, 235, 0.18);
+
+  opacity: 0;
+
+  animation:
+    navScannerMove 1.15s
+    cubic-bezier(0.4, 0, 0.2, 1)
+    4.05s forwards;
+}
+
+
+/* Animated hover underline */
+
+.scanner-nav a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+
+  width: 100%;
+  height: 2px;
+
+  border-radius: 999px;
+
+  background: #2563eb;
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  opacity: 0;
+
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.2s ease;
+}
+
+.scanner-nav a:hover::after,
+.scanner-nav a:focus-visible::after {
+  width: 100%;
+}
+
+.scanner-nav a:hover,
+.scanner-nav a:focus-visible {
+  color: #2563eb;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes navScanReveal {
+
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+    filter: blur(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+}
+
+
+@keyframes navScannerMove {
+
+  0% {
+    left: -25%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 105%;
+    opacity: 0;
+  }
+
+}
+
+
+/* Mobile: don't run scanner inside opened menu */
+
+@media (max-width: 860px) {
+
+  .scanner-nav {
+    overflow: visible;
+  }
+
+  .scanner-nav .nav-scanner {
+    display: none;
+  }
+
+  .scanner-nav a {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+}
+
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .scanner-nav a {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .nav-scanner {
+    display: none;
+  }
+
+}
+.site-header {
+  animation:
+    elegantNavDrop 0.8s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    4.1s both;
+}
+/* NAVBAR — CLEAN UNDERLINE HOVER */
+
+.scanner-nav a:hover,
+.scanner-nav a:focus-visible {
+  color: #2563eb;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.scanner-nav a::after {
+  content: "";
+  position: absolute;
+
+  left: 50%;
+  bottom: -3px;
+
+  width: 0;
+  height: 2px;
+
+  background: #2563eb;
+  border-radius: 999px;
+
+  transform: translateX(-50%);
+  opacity: 1;
+
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scanner-nav a:hover::after,
+.scanner-nav a:focus-visible::after {
+  width: 100%;
+}
+/* =========================================================
+   ELEGANT DROP NAVIGATION
+========================================================= */
+
+.site-header {
+  animation:
+    elegantNavDrop 0.8s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    4.1s both;
+}
+
+/* =========================================
+   ELEGANT NAV LINK HOVER
+========================================= */
+
+.nav-links a {
+  position: relative;
+  display: inline-block;
+
+  padding: 7px 0;
+
+  color: var(--muted);
+
+  background-image:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #2563eb
+    );
+
+  background-repeat: no-repeat;
+
+  /* line sits directly below text */
+  background-position: center bottom;
+
+  /* hidden normally */
+  background-size: 0 2px;
+
+  transition:
+    color 0.25s ease,
+    background-size 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: #2563eb;
+
+  /* straight blue line grows from center */
+  background-size: 100% 2px;
+}
+/* Navbar entrance */
+
+@keyframes elegantNavDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Mobile */
+@media (max-width: 860px) {
+  .site-header {
+    animation: none;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .site-header {
+    animation: none;
+  }
+}
