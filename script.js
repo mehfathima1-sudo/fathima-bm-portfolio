@@ -86,7 +86,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
 
 const roleElement = document.querySelector('#typed-role');
-const roles = ['web developer', 'Python learner', 'creative problem-solver'];
+const roles = ['web developer', 'BCA student', 'creative problem-solver'];
 let roleIndex = 0;
 let characterIndex = roles[0].length;
 let deleting = true;
