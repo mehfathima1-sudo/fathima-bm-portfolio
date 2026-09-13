@@ -1081,3 +1081,38 @@ window.addEventListener(
     passive: true
   }
 );
+// =========================================
+// CINEMATIC BACKGROUND SCROLL REACTION
+// =========================================
+
+const cinematicBg =
+  document.querySelector(
+    '.cinematic-bg'
+  );
+
+
+function updateCinematicBackground() {
+
+  if (!cinematicBg) {
+    return;
+  }
+
+
+  cinematicBg.style.setProperty(
+    '--cinematic-scroll',
+    `${window.scrollY}px`
+  );
+
+}
+
+
+updateCinematicBackground();
+
+
+window.addEventListener(
+  'scroll',
+  updateCinematicBackground,
+  {
+    passive: true
+  }
+);

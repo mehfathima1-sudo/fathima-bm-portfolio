@@ -197,16 +197,18 @@ footer { border-top: 1px solid var(--line); }
   .resume-toolbar { display: none; }
   .resume-block { break-inside: avoid; }
 }
-/* WHITE + BLUE THEME */
 :root {
-  --bg: #ffffff;
-  --surface: #f1f6ff;
-  --surface-2: #e2ecff;
-  --text: #17243b;
-  --muted: #52627a;
-  --accent: #245bd6;
-  --accent-2: #72a7ff;
-  --line: rgba(36, 91, 214, 0.18);
+  --bg: #fbfaf8;
+  --surface: #f4f5f7;
+  --surface-2: #e9edf2;
+
+  --text: #18304f;
+  --muted: #5f6f82;
+
+  --accent: #6281a8;
+  --accent-2: #a8b9cc;
+
+  --line: rgba(98, 129, 168, 0.20);
 }
 
 .site-header {
@@ -7591,4 +7593,4414 @@ body {
 html,
 body {
   overflow-x: clip;
+}
+
+/* =========================================================
+   OPTION 3 — MODERN ARCHITECTURAL BACKGROUND
+========================================================= */
+
+.cinematic-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -20;
+  overflow: hidden;
+  pointer-events: none;
+
+background:
+  radial-gradient(
+    circle at 74% 40%,
+    rgba(194, 211, 235, 0.60) 0%,
+    rgba(222, 231, 244, 0.34) 22%,
+    transparent 46%
+  ),
+
+  radial-gradient(
+    circle at 18% 78%,
+    rgba(226, 211, 198, 0.34) 0%,
+    rgba(242, 233, 226, 0.18) 26%,
+    transparent 48%
+  ),
+
+  linear-gradient(
+    135deg,
+    #fbfaf8 0%,
+    #f7f7f6 30%,
+    #f2f5f8 58%,
+    #f8f4f0 82%,
+    #fbfaf8 100%
+  );
+}
+
+
+/* architectural vertical depth */
+
+.cinematic-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 7%,
+      rgba(255,255,255,0.7) 8%,
+      transparent 9%,
+
+      transparent 27%,
+      rgba(126,88,63,0.07) 28%,
+      rgba(255,255,255,0.42) 29%,
+      transparent 30%,
+
+      transparent 48%,
+      rgba(255,255,255,0.85) 50%,
+      transparent 52%,
+
+      transparent 76%,
+      rgba(255,255,255,0.5) 78%,
+      rgba(120,82,57,0.06) 79%,
+      transparent 80%,
+
+      transparent 92%,
+      rgba(255,255,255,0.75) 93%,
+      transparent 94%
+    );
+}
+
+
+/* soft studio floor depth */
+
+.cinematic-bg::after {
+  content: "";
+  position: absolute;
+
+  left: -10%;
+  right: -10%;
+  bottom: -22%;
+
+  height: 48%;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255,255,255,0.95),
+      rgba(240,220,205,0.55) 45%,
+      rgba(178,132,101,0.12) 72%,
+      transparent 82%
+    );
+
+  filter: blur(18px);
+
+  transform:
+    perspective(900px)
+    rotateX(64deg);
+
+  transform-origin: bottom center;
+}
+
+
+/* =========================================================
+   GLASS / LIGHT PANELS
+========================================================= */
+
+.cinematic-orb {
+  position: absolute;
+  border-radius: 0;
+  pointer-events: none;
+}
+
+
+/* left panel */
+
+.orb-a {
+  width: 150px;
+  height: 120vh;
+
+  left: 4%;
+  top: -10%;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(119,80,55,0.08),
+      rgba(255,255,255,0.6),
+      rgba(255,255,255,0.08)
+    );
+
+  border-left:
+    1px solid rgba(255,255,255,0.55);
+
+  border-right:
+    1px solid rgba(115,76,51,0.08);
+
+  animation:
+    panelFloatLeft
+    10s ease-in-out infinite alternate;
+}
+
+
+/* center panel */
+
+.orb-b {
+  width: 115px;
+  height: 115vh;
+
+  left: 47%;
+  top: -8%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.72),
+      rgba(255,255,255,0.15),
+      transparent
+    );
+
+  animation:
+    panelFloatCenter
+    12s ease-in-out infinite alternate;
+}
+
+
+/* right panel */
+
+.orb-c {
+  width: 180px;
+  height: 120vh;
+
+  right: 6%;
+  top: -10%;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0.08),
+      rgba(255,250,245,0.52),
+      rgba(117,77,52,0.09)
+    );
+
+  border-left:
+    1px solid rgba(255,255,255,0.5);
+
+  animation:
+    panelFloatRight
+    14s ease-in-out infinite alternate;
+}
+
+
+/* =========================================================
+   PANEL MOVEMENT
+========================================================= */
+
+@keyframes panelFloatLeft {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(16px);
+  }
+}
+
+@keyframes panelFloatCenter {
+  from {
+    transform: translateX(-8px);
+  }
+
+  to {
+    transform: translateX(12px);
+  }
+}
+
+@keyframes panelFloatRight {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-18px);
+  }
+}
+
+
+/* =========================================================
+   SOFT VERTICAL LIGHTS
+========================================================= */
+
+.cinematic-streak {
+  position: absolute;
+
+  top: -15%;
+
+  width: 2px;
+  height: 125vh;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(255,255,255,0.45),
+      rgba(255,230,209,0.72),
+      rgba(255,255,255,0.35),
+      transparent
+    );
+
+  opacity: 0.42;
+
+  box-shadow:
+    0 0 14px rgba(255,224,198,0.28);
+
+  animation:
+    architecturalLight
+    8s ease-in-out infinite alternate;
+}
+
+
+.streak-1 {
+  left: 8%;
+}
+
+.streak-2 {
+  left: 51%;
+  animation-delay: -3s;
+}
+
+.streak-3 {
+  left: 92%;
+  animation-delay: -5s;
+}
+
+
+@keyframes architecturalLight {
+
+  from {
+    opacity: 0.20;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 0.52;
+    transform: translateY(20px);
+  }
+
+}
+
+
+/* =========================================================
+   NO PARTICLES / STARS
+========================================================= */
+
+.cinematic-particles {
+  display: none;
+}
+
+
+/* =========================================================
+   KEEP CONTENT ABOVE BACKGROUND
+========================================================= */
+
+.site-header,
+main,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+body {
+  background: transparent;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .cinematic-bg {
+    background:
+      linear-gradient(
+        90deg,
+        #ead8c9,
+        #fffaf6 24%,
+        #ffffff 50%,
+        #fff8f2 76%,
+        #e5d0bf
+      );
+  }
+
+  .orb-a {
+    width: 75px;
+    left: -20px;
+  }
+
+  .orb-b {
+    width: 60px;
+  }
+
+  .orb-c {
+    width: 80px;
+    right: -20px;
+  }
+
+  .cinematic-streak {
+    opacity: 0.18;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .cinematic-orb,
+  .cinematic-streak {
+    animation: none !important;
+  }
+
+}
+/* REMOVE OLD ARCHITECTURAL ELEMENTS */
+
+.cinematic-bg::before,
+.cinematic-bg::after,
+.cinematic-orb,
+.cinematic-streak {
+  display: none !important;
+}
+/* =========================================================
+   SUBTLE DEVELOPER GRID
+========================================================= */
+
+.cinematic-bg {
+  background-image:
+    linear-gradient(
+      rgba(98, 129, 168, 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(98, 129, 168, 0.045) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 74% 40%,
+      rgba(194, 211, 235, 0.60) 0%,
+      rgba(222, 231, 244, 0.34) 22%,
+      transparent 46%
+    ),
+    radial-gradient(
+      circle at 18% 78%,
+      rgba(226, 211, 198, 0.34) 0%,
+      rgba(242, 233, 226, 0.18) 26%,
+      transparent 48%
+    ),
+    linear-gradient(
+      135deg,
+      #fbfaf8 0%,
+      #f7f7f6 30%,
+      #f2f5f8 58%,
+      #f8f4f0 82%,
+      #fbfaf8 100%
+    );
+
+  background-size:
+    52px 52px,
+    52px 52px,
+    auto,
+    auto,
+    auto;
+}
+/* =========================================================
+   LARGE GLASS CODE PANEL
+========================================================= */
+
+.portrait-wrap::before {
+  content: "";
+  position: absolute;
+
+  width: 520px;
+  height: 360px;
+
+  right: -20px;
+  top: 90px;
+
+  border-radius: 34px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.50),
+      rgba(223, 232, 244, 0.28)
+    );
+
+  border:
+    1px solid rgba(255, 255, 255, 0.78);
+
+  box-shadow:
+    0 24px 70px rgba(80, 100, 130, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  z-index: -2;
+
+  transform: rotate(-1deg);
+
+  animation:
+    codePanelFloat
+    7s ease-in-out infinite alternate;
+}
+
+
+/* code symbol + fake code lines */
+
+.portrait-wrap::after {
+  content:
+    "</>    ─────────\A"
+    "       ─────────────\A"
+    "       ────────";
+
+  white-space: pre;
+
+  position: absolute;
+
+  right: 240px;
+  top: 135px;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+
+  font-size: 26px;
+  line-height: 1.65;
+
+  letter-spacing: 0.02em;
+
+  text-shadow:
+    0 1px 10px rgba(255, 255, 255, 0.22);
+
+  z-index: -1;
+
+  pointer-events: none;
+}
+
+
+@keyframes codePanelFloat {
+
+  from {
+    transform:
+      translateY(0)
+      rotate(-1deg);
+  }
+
+  to {
+    transform:
+      translateY(-12px)
+      rotate(0deg);
+  }
+
+}
+
+
+/* mobile */
+
+@media (max-width: 700px) {
+
+  .portrait-wrap::before {
+    width: 300px;
+    height: 230px;
+
+    right: 0;
+    top: 80px;
+
+    border-radius: 24px;
+  }
+
+  .portrait-wrap::after {
+    right: 145px;
+    top: 110px;
+
+    font-size: 17px;
+  }
+
+}
+/* =========================================================
+   SMALL FLOATING UI CARD
+========================================================= */
+
+.portrait-card::after {
+  content:
+    "•••\A"
+    "────────────\A"
+    "────────";
+
+  white-space: pre;
+
+  position: absolute;
+
+  width: 190px;
+  height: 105px;
+
+  right: -165px;
+  top: -210px;
+
+  padding: 18px 20px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.62),
+      rgba(220, 229, 241, 0.36)
+    );
+
+  border:
+    1px solid rgba(255, 255, 255, 0.78);
+
+  box-shadow:
+    0 18px 45px rgba(76, 95, 120, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  color:
+    rgba(255, 255, 255, 0.90);
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+
+  font-size: 15px;
+  line-height: 1.5;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  animation:
+    floatingUICard
+    6s ease-in-out infinite alternate;
+}
+
+
+@keyframes floatingUICard {
+
+  from {
+    transform:
+      translateY(0)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translateY(-10px)
+      rotate(1deg);
+  }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  .portrait-card::after {
+    width: 135px;
+    height: 82px;
+
+    right: -45px;
+    top: -145px;
+
+    padding: 13px;
+
+    font-size: 11px;
+
+    opacity: 0.75;
+  }
+
+}
+/* =========================================================
+   LOWER-RIGHT FOLDER / WINDOW CARD
+========================================================= */
+
+.portrait-wrap .portrait-card::before {
+  content:
+    "▰\A"
+    "────────";
+
+  white-space: pre;
+
+  position: absolute;
+
+  width: 145px;
+  height: 110px;
+
+  right: -125px;
+  bottom: -125px;
+
+  padding: 18px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.60),
+      rgba(216, 226, 239, 0.34)
+    );
+
+  border:
+    1px solid rgba(255, 255, 255, 0.78);
+
+  box-shadow:
+    0 20px 50px rgba(76, 95, 120, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  color:
+    rgba(255, 255, 255, 0.88);
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+
+  font-size: 25px;
+  line-height: 1.55;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  animation:
+    folderCardFloat
+    7s ease-in-out infinite alternate;
+}
+
+
+@keyframes folderCardFloat {
+
+  from {
+    transform:
+      translateY(0)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translateY(-8px)
+      rotate(-1deg);
+  }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  .portrait-wrap .portrait-card::before {
+    width: 105px;
+    height: 78px;
+
+    right: -35px;
+    bottom: -95px;
+
+    padding: 13px;
+
+    font-size: 17px;
+
+    opacity: 0.72;
+  }
+
+}
+/* MOVE LOWER GLASS CARD AWAY FROM CURRENTLY EXPLORING */
+
+.portrait-wrap .portrait-card::before {
+  right: -150px;
+  bottom: -165px;
+}
+/* HERO POSITION FINAL TUNING */
+
+.hero {
+  min-height: calc(100svh - 74px);
+  align-items: start;
+
+  padding-top: 70px;
+  padding-bottom: 45px;
+}
+
+.hero-copy {
+  padding-top: 55px;
+}
+
+.portrait-wrap {
+  margin-top: 5px;
+}
+/* =========================================================
+   SMALL FLOATING TECH SQUARES
+========================================================= */
+
+.hero {
+  position: relative;
+}
+
+/* small square on left */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 42px;
+  height: 42px;
+
+  left: 6%;
+  top: 17%;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.58),
+      rgba(184,202,225,0.20)
+    );
+
+  border:
+    1px solid rgba(255,255,255,0.75);
+
+  box-shadow:
+    0 12px 30px rgba(70,90,120,0.08);
+
+  backdrop-filter: blur(10px);
+
+  opacity: 0.72;
+
+  animation:
+    techSquareFloatOne
+    7s ease-in-out infinite alternate;
+
+  pointer-events: none;
+}
+
+
+/* tiny square near right */
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 25px;
+  height: 25px;
+
+  right: 7%;
+  top: 48%;
+
+  border-radius: 6px;
+
+  background:
+    rgba(167, 187, 214, 0.28);
+
+  border:
+    1px solid rgba(255,255,255,0.68);
+
+  box-shadow:
+    0 8px 22px rgba(70,90,120,0.07);
+
+  opacity: 0.68;
+
+  animation:
+    techSquareFloatTwo
+    8s ease-in-out infinite alternate;
+
+  pointer-events: none;
+}
+
+
+@keyframes techSquareFloatOne {
+
+  from {
+    transform:
+      translateY(0)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translateY(-10px)
+      rotate(3deg);
+  }
+
+}
+
+
+@keyframes techSquareFloatTwo {
+
+  from {
+    transform:
+      translateY(0);
+  }
+
+  to {
+    transform:
+      translateY(12px);
+  }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  .hero::before {
+    width: 28px;
+    height: 28px;
+
+    left: 4%;
+    top: 12%;
+
+    opacity: 0.45;
+  }
+
+  .hero::after {
+    width: 18px;
+    height: 18px;
+
+    right: 5%;
+
+    opacity: 0.42;
+  }
+
+}
+/* =========================================================
+   CODE PANEL DETAIL POLISH
+========================================================= */
+
+.portrait-wrap::after {
+  color: rgba(255, 255, 255, 0.95);
+
+  text-shadow:
+    0 0 12px rgba(255,255,255,0.30),
+    0 0 24px rgba(135,165,205,0.18);
+
+  opacity: 0.95;
+}
+/* =========================================================
+   MOBILE HERO FINAL TUNING
+========================================================= */
+
+@media (max-width: 560px) {
+
+  .hero {
+    padding-top: 34px;
+    padding-bottom: 30px;
+    gap: 10px;
+  }
+
+  .hero-copy {
+    padding-top: 35px;
+  }
+
+  .portrait-wrap {
+    margin-top: -10px;
+  }
+
+  .portrait-label {
+    top: 12px;
+  }
+}
+@media (max-width: 560px) {
+  .portrait-wrap {
+    margin-top: -35px;
+  }
+}
+/* =========================================================
+   OPTION 5 — GLASS TERMINAL THEME
+   STEP 1: BASE COLORS
+========================================================= */
+
+:root {
+  --bg: #07111f;
+  --surface: #0d1a2b;
+  --surface-2: #13253a;
+
+  --text: #f4f7fb;
+  --muted: #a9b7c8;
+
+  --accent: #4aa8ff;
+  --accent-2: #7bc7ff;
+
+  --line: rgba(122, 199, 255, 0.18);
+}
+
+body {
+  background:
+    radial-gradient(
+      circle at 72% 38%,
+      rgba(44, 120, 205, 0.22),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 18% 72%,
+      rgba(17, 65, 110, 0.18),
+      transparent 38%
+    ),
+    linear-gradient(
+      135deg,
+      #06101d 0%,
+      #091522 48%,
+      #07111f 100%
+    ) !important;
+
+  color: var(--text);
+}
+
+.site-header {
+  background: rgba(7, 17, 31, 0.82) !important;
+  border-bottom: 1px solid rgba(122, 199, 255, 0.10);
+  backdrop-filter: blur(18px);
+}
+
+.nav-links a {
+  color: #aebed0;
+}
+
+.nav-links a:hover,
+.nav-links a.nav-active {
+  color: #ffffff;
+}
+
+.eyebrow,
+.animated-role,
+.section-number,
+.project-type {
+  color: var(--accent);
+}
+
+.hero-text,
+.quick-links {
+  color: var(--muted);
+}
+
+.button-primary {
+  background:
+    linear-gradient(
+      135deg,
+      #4aa8ff,
+      #2d7ed8
+    );
+
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.button-secondary {
+  color: #ffffff;
+
+  background:
+    rgba(255,255,255,0.03);
+
+  border-color:
+    rgba(122,199,255,0.28);
+}
+/* =========================================================
+   OPTION 5 — GLASS TERMINAL
+   STEP 2: DARK TERMINAL PANELS
+========================================================= */
+
+.portrait-wrap::before {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(11, 24, 39, 0.88),
+      rgba(16, 38, 60, 0.72)
+    ) !important;
+
+  border:
+    1px solid rgba(92, 176, 255, 0.20) !important;
+
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.portrait-wrap::after {
+  color: rgba(121, 200, 255, 0.78) !important;
+
+  text-shadow:
+    0 0 12px rgba(74, 168, 255, 0.28) !important;
+}
+
+
+/* upper-right floating terminal card */
+
+.portrait-card::after {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10, 22, 36, 0.90),
+      rgba(15, 34, 54, 0.78)
+    ) !important;
+
+  border:
+    1px solid rgba(92, 176, 255, 0.20) !important;
+
+  color:
+    rgba(122, 199, 255, 0.82) !important;
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.28) !important;
+}
+
+
+/* lower-right floating card */
+
+.portrait-wrap .portrait-card::before {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10, 22, 36, 0.90),
+      rgba(15, 34, 54, 0.78)
+    ) !important;
+
+  border:
+    1px solid rgba(92, 176, 255, 0.18) !important;
+
+  color:
+    rgba(122, 199, 255, 0.78) !important;
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.26) !important;
+}
+
+
+/* currently exploring card */
+
+.portrait-card {
+  background:
+    rgba(8, 20, 34, 0.86) !important;
+
+  border-color:
+    rgba(92, 176, 255, 0.22) !important;
+
+  color:
+    var(--text) !important;
+
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.28) !important;
+}
+
+.portrait-card span {
+  color:
+    #8fa7bf !important;
+}
+
+.portrait-card strong {
+  color:
+    #ffffff !important;
+}
+/* =========================================================
+   OPTION 5 — GLASS TERMINAL
+   STEP 3: HERO NAME + HEADING STYLE
+========================================================= */
+
+.hero h1 {
+  color: #ffffff;
+}
+
+/* Fathima B M */
+.hero h1 span {
+  color: transparent;
+
+  background:
+    linear-gradient(
+      90deg,
+      #69b9ff 0%,
+      #4aa8ff 38%,
+      #7f8cff 72%,
+      #a6b8ff 100%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  -webkit-text-stroke: 0;
+
+  text-shadow:
+    0 0 28px rgba(74, 168, 255, 0.10);
+}
+
+
+/* typed role */
+.animated-role {
+  color: #76c0ff !important;
+}
+
+
+/* eyebrow */
+.eyebrow {
+  color: #8abfff !important;
+}
+
+
+/* body text */
+.hero-text {
+  color: #aebdcd !important;
+}
+
+
+/* quick links */
+.quick-links a {
+  color: #9fb0c2;
+}
+
+.quick-links a:hover {
+  color: #75bdff;
+}
+/* =========================================================
+   OPTION 5 — GLASS TERMINAL
+   STEP 4: REAL TERMINAL LOOK
+========================================================= */
+
+.portrait-wrap::after {
+  content:
+    "$ npm run dev\A"
+    "> portfolio@1.0.0 dev\A"
+    "✓ Local: localhost:5500\A"
+    "✓ Ready in 412ms";
+
+  white-space: pre;
+
+  right: 225px;
+  top: 125px;
+
+  color: rgba(132, 207, 255, 0.92) !important;
+
+  font-size: 17px;
+  line-height: 1.75;
+
+  letter-spacing: 0;
+
+  text-shadow:
+    0 0 12px rgba(74, 168, 255, 0.24) !important;
+}
+
+
+/* terminal top bar dots */
+
+.portrait-wrap::before {
+  background:
+    radial-gradient(
+      circle at 28px 25px,
+      #ff6b6b 0 4px,
+      transparent 5px
+    ),
+    radial-gradient(
+      circle at 45px 25px,
+      #ffd166 0 4px,
+      transparent 5px
+    ),
+    radial-gradient(
+      circle at 62px 25px,
+      #6ee7a8 0 4px,
+      transparent 5px
+    ),
+    linear-gradient(
+      145deg,
+      rgba(8, 18, 31, 0.94),
+      rgba(13, 32, 52, 0.84)
+    ) !important;
+
+  border:
+    1px solid rgba(105, 185, 255, 0.24) !important;
+}
+
+
+/* subtle terminal inner line */
+
+.portrait-wrap {
+  position: relative;
+}
+
+.portrait-wrap .portrait-frame {
+  position: relative;
+}
+/* =========================================================
+   OPTION 5 — GLASS TERMINAL
+   STEP 5: MINI DEVELOPER WIDGETS
+========================================================= */
+
+/* upper-right mini browser card */
+
+.portrait-card::after {
+  content:
+    "●  ●  ●\A"
+    "localhost:3000\A"
+    "────────────";
+
+  white-space: pre;
+
+  color: rgba(137, 205, 255, 0.90) !important;
+
+  font-size: 12px;
+  line-height: 1.55;
+
+  letter-spacing: 0.02em;
+}
+
+
+/* lower-right mini code card */
+
+.portrait-wrap .portrait-card::before {
+  content:
+    "{ }\A"
+    "index.html\A"
+    "styles.css";
+
+  white-space: pre;
+
+  color: rgba(137, 205, 255, 0.86) !important;
+
+  font-size: 13px;
+  line-height: 1.55;
+}
+/* =========================================================
+   OPTION 5 — GLASS TERMINAL
+   STEP 6: BACKGROUND GRID + GLOW
+========================================================= */
+
+.cinematic-bg {
+  background:
+    linear-gradient(
+      rgba(91, 161, 220, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(91, 161, 220, 0.035) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 75% 35%,
+      rgba(48, 126, 210, 0.20),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 20% 75%,
+      rgba(29, 80, 135, 0.12),
+      transparent 34%
+    ),
+    linear-gradient(
+      135deg,
+      #06101b 0%,
+      #081522 45%,
+      #07111f 100%
+    ) !important;
+
+  background-size:
+    46px 46px,
+    46px 46px,
+    auto,
+    auto,
+    auto;
+
+  background-position:
+    center,
+    center,
+    center,
+    center,
+    center;
+}
+
+
+/* softer light behind portrait */
+
+.portrait-wrap {
+  filter:
+    drop-shadow(
+      0 24px 50px rgba(0, 0, 0, 0.20)
+    );
+}
+
+
+/* tiny blue ambient glow */
+
+.hero::after {
+  width: 220px !important;
+  height: 220px !important;
+
+  right: 8% !important;
+  top: 28% !important;
+
+  border-radius: 50% !important;
+
+  background:
+    rgba(63, 145, 230, 0.08) !important;
+
+  filter: blur(65px);
+
+  border: none !important;
+  box-shadow: none !important;
+
+  opacity: 1 !important;
+}
+/* =========================================================
+   OPTION 5 — GLASS TERMINAL
+   STEP 7: PREMIUM PORTRAIT DEPTH
+========================================================= */
+
+.portrait-frame {
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(86, 169, 255, 0.10),
+      transparent 54%
+    ),
+    rgba(8, 18, 30, 0.10);
+
+  border-radius: 34px;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.22);
+
+  overflow: visible;
+}
+
+
+/* soft halo behind portrait */
+
+.portrait-frame::before {
+  content: "";
+  position: absolute;
+
+  width: 330px;
+  height: 330px;
+
+  left: 50%;
+  top: 38%;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(74, 168, 255, 0.18) 0%,
+      rgba(74, 168, 255, 0.06) 42%,
+      transparent 72%
+    );
+
+  filter: blur(18px);
+
+  z-index: -1;
+  pointer-events: none;
+}
+
+
+/* portrait itself */
+
+.portrait-frame img {
+  position: relative;
+  z-index: 2;
+
+  filter:
+    drop-shadow(
+      0 24px 26px rgba(0, 0, 0, 0.26)
+    );
+}
+
+
+/* soft floor shadow */
+
+.portrait-frame::after {
+  content: "";
+  position: absolute;
+
+  width: 250px;
+  height: 42px;
+
+  left: 50%;
+  bottom: 6px;
+
+  transform:
+    translateX(-50%);
+
+  border-radius: 50%;
+
+  background:
+    rgba(0, 0, 0, 0.28);
+
+  filter: blur(18px);
+
+  z-index: 0;
+  pointer-events: none;
+}
+/* =========================================================
+   OPTION 5 — GLASS TERMINAL
+   STEP 8: CLEANUP OLD DECORATIONS
+========================================================= */
+
+/* remove old pale floating squares */
+.hero::before {
+  display: none !important;
+}
+
+
+/* keep only the new blue ambient glow */
+.hero::after {
+  pointer-events: none;
+}
+
+
+/* remove unwanted bright borders from older styles */
+.portrait-frame,
+.portrait-wrap,
+.portrait-card {
+  border-color: rgba(89, 174, 255, 0.16) !important;
+}
+
+
+/* make terminal elements slightly more subtle */
+.portrait-card::after,
+.portrait-wrap .portrait-card::before {
+  opacity: 0.84;
+}
+
+
+/* remove any old beige / white glow behind the portrait */
+.portrait-wrap {
+  background: transparent !important;
+}
+
+
+/* clean BCA badge */
+.portrait-label {
+  background:
+    rgba(8, 20, 34, 0.88) !important;
+
+  color: #dcecff !important;
+
+  border:
+    1px solid rgba(90, 178, 255, 0.22) !important;
+
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.20) !important;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+
+/* cleaner social links */
+.quick-links a {
+  text-decoration-color:
+    rgba(117, 189, 255, 0.32);
+}
+
+
+/* softer divider */
+.hero {
+  border-bottom:
+    1px solid rgba(120, 190, 255, 0.07);
+}
+/* =========================================================
+   OPTION 5 — GLASS TERMINAL
+   STEP 9: FINAL HERO POLISH
+========================================================= */
+
+/* slightly stronger hero typography */
+.hero h1 {
+  letter-spacing: -0.035em;
+}
+
+.hero h1 span {
+  filter:
+    drop-shadow(
+      0 0 18px rgba(74, 168, 255, 0.08)
+    );
+}
+
+
+/* improve paragraph readability */
+.hero-text {
+  max-width: 590px;
+  line-height: 1.75;
+}
+
+
+/* make buttons feel more premium */
+.button-primary,
+.button-secondary {
+  border-radius: 14px;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.button-primary:hover,
+.button-secondary:hover {
+  transform: translateY(-3px);
+}
+
+.button-primary:hover {
+  box-shadow:
+    0 12px 30px rgba(56, 145, 230, 0.24);
+}
+
+
+/* cleaner terminal cards */
+.portrait-wrap::before,
+.portrait-card::after,
+.portrait-wrap .portrait-card::before,
+.portrait-card {
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* very subtle edge glow */
+.portrait-wrap::before {
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.32),
+    0 0 50px rgba(58, 145, 230, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04)
+    !important;
+}
+
+
+/* keep hero balanced on large screens */
+@media (min-width: 1000px) {
+  .hero {
+    grid-template-columns:
+      minmax(0, 1.03fr)
+      minmax(440px, 0.97fr);
+  }
+
+  .hero-copy {
+    max-width: 680px;
+  }
+}
+
+
+/* mobile cleanup */
+@media (max-width: 560px) {
+  .hero h1 {
+    letter-spacing: -0.025em;
+  }
+
+  .hero-text {
+    line-height: 1.65;
+  }
+
+  .portrait-wrap::before {
+    opacity: 0.82;
+  }
+
+  .portrait-card::after,
+  .portrait-wrap .portrait-card::before {
+    opacity: 0.65;
+  }
+}
+/* =========================================================
+   OPTION 5 — GLASS TERMINAL
+   STEP 10: FIX HERO NAME BALANCE
+========================================================= */
+
+.hero-copy {
+  max-width: 760px !important;
+}
+
+.hero h1 {
+  font-size: clamp(4.6rem, 6.7vw, 7rem) !important;
+  line-height: 0.94;
+}
+
+.hero h1 span {
+  display: block;
+  white-space: nowrap;
+  font-size: 0.88em;
+}
+
+
+/* give the text side a little more room */
+@media (min-width: 1000px) {
+  .hero {
+    grid-template-columns:
+      minmax(0, 1.10fr)
+      minmax(430px, 0.90fr) !important;
+
+    gap: 45px;
+  }
+}
+
+
+/* mobile must still wrap safely */
+@media (max-width: 700px) {
+  .hero h1 {
+    font-size: clamp(3.1rem, 15vw, 4.8rem) !important;
+  }
+
+  .hero h1 span {
+    white-space: normal;
+  }
+}
+/* =========================================================
+   OPTION 5 — GLASS TERMINAL
+   STEP 11: CLEAN RIGHT-SIDE COMPOSITION
+========================================================= */
+
+/* main terminal window */
+.portrait-wrap::before {
+  width: 500px !important;
+  height: 340px !important;
+
+  right: -5px !important;
+  top: 95px !important;
+
+  opacity: 0.92;
+}
+
+
+/* terminal text */
+.portrait-wrap::after {
+  right: 230px !important;
+  top: 135px !important;
+
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+
+  opacity: 0.76;
+}
+
+
+/* portrait slightly more central */
+.portrait-frame {
+  transform: translateX(-18px);
+}
+
+
+/* upper-right localhost card */
+.portrait-card::after {
+  width: 165px !important;
+  height: 90px !important;
+
+  right: -105px !important;
+  top: -175px !important;
+
+  opacity: 0.74 !important;
+}
+
+
+/* lower mini code card */
+.portrait-wrap .portrait-card::before {
+  width: 125px !important;
+  height: 92px !important;
+
+  right: -95px !important;
+  bottom: -120px !important;
+
+  opacity: 0.68 !important;
+}
+
+
+/* currently exploring card */
+.portrait-card {
+  right: 10px !important;
+  bottom: 15px !important;
+
+  width: 220px;
+}
+
+
+/* keep portrait above terminal */
+.portrait-frame img {
+  position: relative;
+  z-index: 5;
+}
+
+
+/* desktop spacing */
+@media (min-width: 1000px) {
+  .portrait-wrap {
+    transform: translateX(5px);
+  }
+}
+/* =========================================================
+   OPTION 5 — GLASS TERMINAL
+   STEP 12: REMOVE EXTRA CARD + FIX BOTTOM OVERLAP
+========================================================= */
+
+/* remove localhost card */
+.portrait-card::after {
+  display: none !important;
+}
+
+
+/* keep lower code card but make it smaller */
+.portrait-wrap .portrait-card::before {
+  width: 110px !important;
+  height: 78px !important;
+
+  right: -45px !important;
+  bottom: -50px !important;
+
+  font-size: 11px !important;
+  line-height: 1.45 !important;
+
+  opacity: 0.55 !important;
+}
+
+
+/* move Currently Exploring upward */
+.portrait-card {
+  right: 15px !important;
+  bottom: 70px !important;
+
+  width: 215px !important;
+}
+
+
+/* slightly lift whole portrait area */
+@media (min-width: 1000px) {
+  .portrait-wrap {
+    margin-top: -12px !important;
+  }
+}
+/* =========================================================
+   RESTORE PREVIOUS RIGHT-SIDE LAYOUT
+========================================================= */
+
+/* bring back localhost card */
+.portrait-card::after {
+  display: block !important;
+
+  width: 165px !important;
+  height: 90px !important;
+
+  right: -105px !important;
+  top: -175px !important;
+
+  opacity: 0.74 !important;
+}
+
+
+/* restore lower code card */
+.portrait-wrap .portrait-card::before {
+  width: 125px !important;
+  height: 92px !important;
+
+  right: -95px !important;
+  bottom: -120px !important;
+
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+
+  opacity: 0.68 !important;
+}
+
+
+/* restore Currently Exploring position */
+.portrait-card {
+  right: 10px !important;
+  bottom: 15px !important;
+
+  width: 220px !important;
+}
+
+
+/* restore portrait position */
+@media (min-width: 1000px) {
+  .portrait-wrap {
+    margin-top: -12px !important;
+    transform: translateX(5px);
+  }
+}
+/* =========================================================
+   OPTION 5 — GLASS TERMINAL
+   STEP 13: PREMIUM NAVBAR
+========================================================= */
+
+.site-header {
+  background:
+    rgba(5, 15, 27, 0.78) !important;
+
+  border-bottom:
+    1px solid rgba(93, 174, 255, 0.10) !important;
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.10);
+}
+
+
+/* navbar links */
+
+.nav-links a {
+  position: relative;
+
+  color: #9eafc1 !important;
+
+  font-weight: 500;
+
+  transition:
+    color 0.25s ease;
+}
+
+
+/* underline animation */
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -8px;
+
+  width: 0;
+  height: 2px;
+
+  transform: translateX(-50%);
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #45a7ff,
+      #7c8cff
+    );
+
+  box-shadow:
+    0 0 10px rgba(74, 168, 255, 0.40);
+
+  transition:
+    width 0.25s ease;
+}
+
+
+.nav-links a:hover {
+  color: #ffffff !important;
+}
+
+
+.nav-links a:hover::after,
+.nav-links a.nav-active::after {
+  width: 22px;
+}
+
+
+.nav-links a.nav-active {
+  color: #ffffff !important;
+}
+
+
+/* active little glow */
+
+.nav-links a.nav-active {
+  text-shadow:
+    0 0 14px rgba(88, 174, 255, 0.16);
+}
+/* =========================================================
+   OPTION 5 — GLASS TERMINAL
+   STEP 14: BCA STATUS CHIP
+========================================================= */
+
+.portrait-label {
+  top: 22px !important;
+  left: 0 !important;
+  right: auto !important;
+
+  transform: none !important;
+
+  padding: 9px 14px !important;
+
+  border-radius: 999px !important;
+
+  background:
+    rgba(8, 20, 34, 0.78) !important;
+
+  border:
+    1px solid rgba(78, 166, 255, 0.24) !important;
+
+  color:
+    #cfe7ff !important;
+
+  font-size: 12px !important;
+
+  letter-spacing: 0.04em;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.16) !important;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+
+/* tiny glowing dot before text */
+.portrait-label::before {
+  content: "";
+
+  display: inline-block;
+
+  width: 7px;
+  height: 7px;
+
+  margin-right: 8px;
+
+  border-radius: 50%;
+
+  background: #4aa8ff;
+
+  box-shadow:
+    0 0 10px rgba(74, 168, 255, 0.75);
+}
+/* =========================================================
+   STEP 15 — FIX BCA STATUS CHIP POSITION
+========================================================= */
+
+.portrait-label {
+  left: 13% !important;
+  top: 24px !important;
+
+  right: auto !important;
+  transform: none !important;
+}
+
+
+/* mobile */
+@media (max-width: 700px) {
+  .portrait-label {
+    left: 22px !important;
+    top: 18px !important;
+  }
+}
+/* =========================================================
+   STEP 16 — LIFT BOTTOM-RIGHT CARDS
+========================================================= */
+
+/* Currently Exploring card */
+.portrait-card {
+  bottom: 95px !important;
+  right: 5px !important;
+}
+
+
+/* small code card */
+.portrait-wrap .portrait-card::before {
+  bottom: -35px !important;
+  right: -85px !important;
+}
+
+
+/* make sure they stay above the bottom edge */
+@media (min-width: 1000px) {
+  .portrait-wrap {
+    padding-bottom: 70px;
+  }
+}
+/* =========================================================
+   STEP 17 — IMPROVE MAIN TERMINAL PANEL
+========================================================= */
+
+.portrait-wrap::after {
+  right: 250px !important;
+  top: 130px !important;
+
+  font-size: 14px !important;
+  line-height: 1.75 !important;
+
+  color: rgba(115, 197, 255, 0.88) !important;
+
+  opacity: 0.9 !important;
+
+  text-shadow:
+    0 0 10px rgba(74, 168, 255, 0.20) !important;
+}
+
+
+/* slightly darker terminal glass for readability */
+.portrait-wrap::before {
+  background:
+    radial-gradient(
+      circle at 28px 25px,
+      #ff6b6b 0 4px,
+      transparent 5px
+    ),
+    radial-gradient(
+      circle at 45px 25px,
+      #ffd166 0 4px,
+      transparent 5px
+    ),
+    radial-gradient(
+      circle at 62px 25px,
+      #6ee7a8 0 4px,
+      transparent 5px
+    ),
+    linear-gradient(
+      145deg,
+      rgba(5, 15, 27, 0.96),
+      rgba(10, 30, 49, 0.92)
+    ) !important;
+
+  border:
+    1px solid rgba(91, 176, 255, 0.22) !important;
+}
+/* =========================================================
+   STEP 18 — BUTTONS + SOCIAL LINKS FINAL POLISH
+========================================================= */
+
+.button-primary {
+  background:
+    linear-gradient(
+      135deg,
+      #49a8ff 0%,
+      #3d8ef0 55%,
+      #6f7cff 100%
+    ) !important;
+
+  border: none !important;
+
+  box-shadow:
+    0 12px 30px rgba(45, 133, 230, 0.20);
+}
+
+.button-primary:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 16px 38px rgba(45, 133, 230, 0.30);
+}
+
+
+.button-secondary {
+  background:
+    rgba(255, 255, 255, 0.025) !important;
+
+  border:
+    1px solid rgba(105, 185, 255, 0.28) !important;
+
+  color: #edf6ff !important;
+}
+
+.button-secondary:hover {
+  background:
+    rgba(74, 168, 255, 0.08) !important;
+
+  border-color:
+    rgba(105, 185, 255, 0.45) !important;
+}
+
+
+/* GitHub + LinkedIn */
+
+.quick-links {
+  gap: 12px;
+}
+
+.quick-links a {
+  position: relative;
+
+  color: #91a7bc !important;
+
+  font-weight: 500;
+
+  text-decoration: none !important;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.quick-links a:hover {
+  color: #73bfff !important;
+  transform: translateY(-2px);
+}
+
+
+/* separator dots */
+
+.quick-links span,
+.quick-links .separator {
+  color:
+    rgba(124, 180, 230, 0.45);
+}
+/* =========================================================
+   EDUCATION — HIGHER SECONDARY CARD POLISH
+========================================================= */
+
+/* main Higher Secondary light card */
+.education-card,
+.journey-card,
+.education-feature {
+  color: #18304f;
+}
+
+
+/* make normal text readable */
+.education-card p,
+.journey-card p,
+.education-feature p {
+  color: #647892 !important;
+}
+
+
+/* school / institution name */
+.education-card strong,
+.journey-card strong,
+.education-feature strong {
+  color: #29415f !important;
+}
+
+
+/* major heading inside the card */
+.education-card h3,
+.education-card h4,
+.journey-card h3,
+.journey-card h4,
+.education-feature h3,
+.education-feature h4 {
+  color: #18304f !important;
+}
+
+
+/* blue section labels */
+.education-card .eyebrow,
+.journey-card .eyebrow,
+.education-feature .eyebrow {
+  color: #3f9cff !important;
+}
+
+
+/* turning-point / curiosity box */
+.education-card .highlight-box,
+.journey-card .highlight-box,
+.education-feature .highlight-box {
+  background:
+    rgba(255, 255, 255, 0.78) !important;
+
+  border:
+    1px solid rgba(63, 156, 255, 0.13) !important;
+
+  box-shadow:
+    0 12px 35px rgba(22, 47, 77, 0.05);
+}
+
+
+/* WHERE CURIOSITY BECAME CODE */
+.education-card .highlight-box h4,
+.journey-card .highlight-box h4,
+.education-feature .highlight-box h4 {
+  color: #3595f4 !important;
+}
+
+
+/* 54 / 60 */
+.education-card .score,
+.journey-card .score,
+.education-feature .score {
+  color: #3f9cff !important;
+}
+
+
+/* subject chips */
+.education-card .tag,
+.education-card .chip,
+.journey-card .tag,
+.journey-card .chip {
+  background: #ffffff !important;
+
+  color: #607995 !important;
+
+  border:
+    1px solid rgba(39, 92, 145, 0.09) !important;
+}
+/* =========================================================
+   HIGHER SECONDARY CARD — CORRECT COLOR FIX
+========================================================= */
+
+/* Entire +1 / +2 card */
+.journey-important {
+  background:
+    linear-gradient(
+      135deg,
+      #eef3f9 0%,
+      #f8fafc 100%
+    ) !important;
+
+  border:
+    1px solid rgba(74, 168, 255, 0.18) !important;
+
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.12);
+}
+
+
+/* HIGHER SECONDARY */
+.journey-important .journey-type {
+  color: #3498f5 !important;
+}
+
+
+/* Commerce with Computer Application */
+.journey-important .journey-content > h3 {
+  color: #18304f !important;
+}
+
+
+/* Kumbala Academy */
+.journey-important .journey-place {
+  color: #29415f !important;
+}
+
+
+/* Private Study Centre / Exam Centre / Date */
+.journey-important .journey-meta {
+  color: #71849a !important;
+}
+
+
+/* subject chips */
+.journey-important .journey-subjects span {
+  background: #ffffff !important;
+
+  color: #60758d !important;
+
+  border:
+    1px solid rgba(49, 103, 160, 0.12) !important;
+}
+
+
+/* inner "Where curiosity became code" box */
+.journey-important .journey-discovery {
+  background:
+    rgba(255, 255, 255, 0.88) !important;
+
+  border:
+    1px solid rgba(63, 156, 255, 0.15) !important;
+
+  box-shadow:
+    0 14px 35px rgba(33, 61, 95, 0.06);
+}
+
+
+/* Computer Application above 54 / 60 */
+.journey-important .journey-score span {
+  color: #71849a !important;
+}
+
+
+/* 54 / 60 */
+.journey-important .journey-score strong {
+  color: #3498f5 !important;
+}
+
+
+/* divider beside the score */
+.journey-important .journey-score {
+  border-right-color:
+    rgba(61, 105, 151, 0.16) !important;
+}
+
+
+/* WHERE CURIOSITY BECAME CODE */
+.journey-important
+.journey-story
+.journey-type {
+  color: #3498f5 !important;
+}
+
+
+/* story paragraph */
+.journey-important
+.journey-story > p:last-child {
+  color: #637a93 !important;
+
+  line-height: 1.65;
+}
+/* =========================================================
+   EDUCATION — BCA DECISION STRIP POLISH
+========================================================= */
+
+.journey-decision {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(17, 42, 68, 0.95),
+      rgba(29, 74, 119, 0.92)
+    ) !important;
+
+  color: #dceeff !important;
+
+  border:
+    1px solid rgba(91, 176, 255, 0.22) !important;
+
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.18) !important;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+
+/* first text */
+.journey-decision span {
+  color: #b7c9da !important;
+}
+
+
+/* arrow */
+.journey-decision b {
+  color: #58adff !important;
+}
+
+
+/* Discovered BCA */
+.journey-decision strong {
+  color: #ffffff !important;
+}
+/* =========================================================
+   EDUCATION — CURRENT BCA BLOCK POLISH
+========================================================= */
+
+.journey-current {
+  position: relative;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(8, 22, 38, 0.88),
+      rgba(13, 35, 56, 0.78)
+    );
+
+  border:
+    1px solid rgba(82, 169, 255, 0.16);
+
+  border-radius: 22px;
+
+  padding:
+    38px 30px 38px 0;
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.14);
+}
+
+
+/* BCA abbreviation beside heading */
+.journey-current .journey-short {
+  display: inline-block;
+
+  margin-left: 10px;
+
+  padding: 4px 9px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(74, 168, 255, 0.10);
+
+  color: #6db9ff !important;
+
+  border:
+    1px solid rgba(74, 168, 255, 0.20);
+
+  font-size: 0.72rem;
+  font-weight: 750;
+}
+
+
+/* Degree heading */
+.journey-current h3 {
+  color: #f4f8fc !important;
+}
+
+
+/* College */
+.journey-current .journey-place {
+  color: #d8e4ef !important;
+}
+
+
+/* University */
+.journey-current .journey-meta {
+  color: #8fa4b8 !important;
+}
+
+
+/* Description */
+.journey-current .journey-description {
+  color: #a8bacb !important;
+
+  line-height: 1.7;
+}
+
+
+/* CURRENT badge */
+.journey-current-badge {
+  width: fit-content;
+
+  margin-top: 18px;
+
+  padding: 7px 11px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(74, 168, 255, 0.10) !important;
+
+  color: #63b6ff !important;
+
+  border:
+    1px solid rgba(74, 168, 255, 0.20);
+
+  font-size: 0.7rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+/* =========================================================
+   TRAINING — IoT CARD DARK THEME
+========================================================= */
+
+.training-card {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(8, 22, 38, 0.92),
+      rgba(13, 35, 56, 0.82)
+    ) !important;
+
+  border:
+    1px solid rgba(82, 169, 255, 0.16) !important;
+
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.18) !important;
+}
+
+
+/* year */
+.training-year {
+  color: #49a8ff !important;
+}
+
+
+/* 120 Hours */
+.training-hours {
+  color: #8fa7bd !important;
+
+  border-color:
+    rgba(82, 169, 255, 0.18) !important;
+
+  background:
+    rgba(74, 168, 255, 0.06) !important;
+}
+
+
+/* GOVERNMENT-SUPPORTED TECHNICAL TRAINING */
+.training-type {
+  color: #49a8ff !important;
+}
+
+
+/* Internet of Things (IoT) */
+.training-content h3 {
+  color: #f5f8fc !important;
+}
+
+
+/* provider */
+.training-provider strong {
+  color: #d9e6f1 !important;
+}
+
+.training-provider span {
+  color: #8fa4b8 !important;
+}
+
+
+/* description */
+.training-description {
+  color: #a8bacb !important;
+  line-height: 1.7;
+}
+
+
+/* skill tags */
+.training-tags span {
+  background:
+    rgba(74, 168, 255, 0.06) !important;
+
+  color: #9fc6e8 !important;
+
+  border:
+    1px solid rgba(82, 169, 255, 0.16) !important;
+}
+/* =========================================================
+   TRAINING — CERTIFICATE BUTTON POLISH
+========================================================= */
+
+.certificate-link {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(12, 30, 49, 0.94),
+      rgba(17, 45, 72, 0.88)
+    ) !important;
+
+  border:
+    1px solid rgba(82, 169, 255, 0.20) !important;
+
+  color: #eef7ff !important;
+
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.16) !important;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* icon */
+.certificate-icon {
+  color: #59b0ff !important;
+}
+
+
+/* small label */
+.certificate-link small {
+  color: #7fa7c8 !important;
+}
+
+
+/* main certificate text */
+.certificate-link strong {
+  color: #f5f9fd !important;
+}
+
+
+/* arrow */
+.certificate-link b {
+  color: #59b0ff !important;
+}
+
+
+/* hover */
+.certificate-link:hover {
+  transform: translateY(-3px);
+
+  border-color:
+    rgba(82, 169, 255, 0.38) !important;
+
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.22),
+    0 0 24px rgba(74, 168, 255, 0.07) !important;
+}
+/* =========================================================
+   EXPERIENCE — INTERNSHIP CARD DARK THEME
+========================================================= */
+
+.internship-card {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(8, 22, 38, 0.92),
+      rgba(13, 35, 56, 0.82)
+    ) !important;
+
+  border:
+    1px solid rgba(82, 169, 255, 0.16) !important;
+
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.18) !important;
+}
+
+
+/* INTERNSHIP badge */
+.internship-badge {
+  color: #59b0ff !important;
+
+  background:
+    rgba(74, 168, 255, 0.08) !important;
+
+  border:
+    1px solid rgba(82, 169, 255, 0.18) !important;
+}
+
+
+/* APRIL 2026 */
+.internship-date {
+  color: #8fa7bd !important;
+}
+
+
+/* PYTHON APPLICATION DEVELOPMENT */
+.internship-type {
+  color: #49a8ff !important;
+}
+
+
+/* Python Development Intern */
+.internship-content h3 {
+  color: #f5f8fc !important;
+}
+
+
+/* CADD Centre */
+.internship-company strong {
+  color: #d9e6f1 !important;
+}
+
+
+/* Kasaragod, Kerala */
+.internship-company span {
+  color: #8fa4b8 !important;
+}
+
+
+/* description */
+.internship-description {
+  color: #a8bacb !important;
+  line-height: 1.7;
+}
+
+
+/* Duration / Mode / Domain blocks */
+.internship-details div {
+  border-color:
+    rgba(82, 169, 255, 0.14) !important;
+}
+
+.internship-details span {
+  color: #7f96aa !important;
+}
+
+.internship-details strong {
+  color: #dbe8f3 !important;
+}
+
+
+/* Python / Tkinter / GUI tags */
+.internship-card .education-tags span {
+  background:
+    rgba(74, 168, 255, 0.06) !important;
+
+  color: #9fc6e8 !important;
+
+  border:
+    1px solid rgba(82, 169, 255, 0.16) !important;
+}
+/* =========================================================
+   SKILLS — DARK GLASS TERMINAL CARDS
+========================================================= */
+
+.skill-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(8, 22, 38, 0.92),
+      rgba(13, 35, 56, 0.80)
+    ) !important;
+
+  border:
+    1px solid rgba(82, 169, 255, 0.15) !important;
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.14);
+
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* subtle blue glow inside card */
+.skill-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  right: -55px;
+  top: -55px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(74, 168, 255, 0.08);
+
+  filter: blur(25px);
+
+  pointer-events: none;
+}
+
+
+/* 01 / 02 / 03 */
+.skill-card .card-number {
+  color: #55aeff !important;
+}
+
+
+/* card headings */
+.skill-card h3 {
+  color: #f4f8fc !important;
+}
+
+
+/* technology text */
+.skill-card p {
+  color: #9fb2c5 !important;
+
+  line-height: 1.7;
+}
+
+
+/* hover */
+.skill-card:hover {
+  transform: translateY(-7px);
+
+  border-color:
+    rgba(82, 169, 255, 0.34) !important;
+
+  box-shadow:
+    0 24px 55px rgba(0, 0, 0, 0.20),
+    0 0 28px rgba(74, 168, 255, 0.05);
+}
+/* =========================================================
+   SKILLS — TECHNOLOGY MARQUEE POLISH
+========================================================= */
+
+.skill-marquee {
+  margin-top: 55px;
+
+  padding: 16px 0;
+
+  border-top:
+    1px solid rgba(82, 169, 255, 0.13) !important;
+
+  border-bottom:
+    1px solid rgba(82, 169, 255, 0.13) !important;
+
+  color: #7fa9cc !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(74, 168, 255, 0.025),
+      rgba(74, 168, 255, 0.055),
+      rgba(74, 168, 255, 0.025)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.015),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.015);
+}
+
+
+/* text inside marquee */
+.skill-marquee div {
+  font-size: 0.82rem;
+
+  font-weight: 650;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 0 12px rgba(74, 168, 255, 0.08);
+}
+/* =========================================================
+   BEYOND THE CODE — DARK GLASS TERMINAL STYLE
+========================================================= */
+
+.beyond-skills {
+  position: relative;
+
+  margin-top: 80px;
+  padding: 50px 45px;
+
+  border:
+    1px solid rgba(82, 169, 255, 0.13) !important;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(8, 22, 38, 0.90),
+      rgba(13, 35, 56, 0.72)
+    );
+
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.16);
+
+  overflow: hidden;
+}
+
+
+/* subtle glow */
+.beyond-skills::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  right: -100px;
+  top: -100px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(74, 168, 255, 0.08);
+
+  filter: blur(60px);
+
+  pointer-events: none;
+}
+
+
+/* BEYOND THE CODE label */
+.beyond-label {
+  color: #54adff !important;
+}
+
+
+/* main heading */
+.beyond-skills > h3 {
+  color: #f5f8fc !important;
+}
+
+
+/* introduction */
+.beyond-intro {
+  color: #a4b6c8 !important;
+
+  line-height: 1.7;
+}
+
+
+/* grid borders */
+.beyond-grid {
+  border-top:
+    1px solid rgba(82, 169, 255, 0.13) !important;
+}
+
+
+/* each creative area */
+.beyond-item {
+  border-bottom:
+    1px solid rgba(82, 169, 255, 0.12) !important;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.beyond-item:nth-child(odd) {
+  border-right:
+    1px solid rgba(82, 169, 255, 0.12) !important;
+}
+
+
+/* 01 / 02 / 03 / 04 */
+.beyond-item > span {
+  color: #55aeff !important;
+}
+
+
+/* Design & Making etc. */
+.beyond-item h4 {
+  color: #eef5fb !important;
+}
+
+
+/* lists */
+.beyond-item p {
+  color: #9db0c3 !important;
+}
+
+
+/* personal insight line */
+.beyond-proof {
+  border-top:
+    1px solid rgba(82, 169, 255, 0.11) !important;
+
+  color: #8198ad !important;
+}
+
+
+/* subtle hover */
+.beyond-item:hover {
+  background:
+    rgba(74, 168, 255, 0.035);
+
+  transform:
+    translateY(-2px);
+}
+
+
+/* mobile */
+@media (max-width: 700px) {
+
+  .beyond-skills {
+    padding: 34px 22px;
+    border-radius: 22px;
+  }
+
+  .beyond-item:nth-child(odd) {
+    border-right: 0 !important;
+  }
+}
+/* =========================================================
+   FEATURED PROJECT — AK GLOBAL PREMIUM DARK STYLE
+========================================================= */
+
+.project-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(8, 22, 38, 0.94),
+      rgba(13, 35, 56, 0.82)
+    ) !important;
+
+  border:
+    1px solid rgba(82, 169, 255, 0.16) !important;
+
+  box-shadow:
+    0 24px 65px rgba(0, 0, 0, 0.20);
+
+  overflow: hidden;
+}
+
+
+/* left image side */
+.project-visual {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(13, 35, 56, 0.96),
+      rgba(6, 18, 31, 0.96)
+    ) !important;
+
+  padding: 24px !important;
+}
+
+
+/* screenshot itself */
+.project-cover-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 18px;
+
+  border:
+    1px solid rgba(82, 169, 255, 0.15);
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.24);
+}
+
+
+/* right content side */
+.project-info {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8, 22, 38, 0.40),
+      rgba(8, 22, 38, 0.10)
+    );
+}
+
+
+/* CLIENT PROJECT label */
+.project-type {
+  color: #53adff !important;
+}
+
+
+/* AK Global Visa Service */
+.project-info h3 {
+  color: #f5f9fd !important;
+
+  font-size:
+    clamp(2rem, 3vw, 2.8rem);
+}
+
+
+/* main paragraph */
+.project-info > p:not(.project-type) {
+  color: #a8bacb !important;
+
+  line-height: 1.75;
+}
+
+
+/* project metadata */
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin:
+    20px 0 4px;
+}
+
+.project-meta span {
+  padding: 8px 11px;
+
+  border-radius: 10px;
+
+  background:
+    rgba(74, 168, 255, 0.055);
+
+  border:
+    1px solid rgba(82, 169, 255, 0.14);
+
+  color: #91a9bf;
+}
+
+.project-meta strong {
+  color: #dce9f4;
+}
+
+
+/* technology tags */
+.project-card .tags span {
+  background:
+    rgba(74, 168, 255, 0.06) !important;
+
+  color: #9ec7e9 !important;
+
+  border:
+    1px solid rgba(82, 169, 255, 0.15) !important;
+}
+
+
+/* live project link */
+.project-card .text-link {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 7px;
+
+  margin-top: 5px;
+
+  color: #5bb1ff !important;
+
+  font-weight: 750;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+.project-card .text-link:hover {
+  color: #8bc9ff !important;
+
+  transform:
+    translateX(4px);
+}
+/* =========================================================
+   RESUME SECTION — GLASS TERMINAL CTA
+========================================================= */
+
+.resume-section {
+  position: relative;
+
+  padding:
+    55px 45px !important;
+
+  border:
+    1px solid rgba(82, 169, 255, 0.15) !important;
+
+  border-radius: 26px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(8, 22, 38, 0.92),
+      rgba(13, 35, 56, 0.78)
+    );
+
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.16);
+
+  overflow: hidden;
+}
+
+
+/* soft background glow */
+.resume-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  right: -90px;
+  top: -100px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(74, 168, 255, 0.08);
+
+  filter: blur(55px);
+
+  pointer-events: none;
+}
+
+
+/* 07 / Resume */
+.resume-section .section-number {
+  color: #55aeff !important;
+}
+
+
+/* Want the complete picture? */
+.resume-section h2 {
+  color: #f5f9fd !important;
+}
+
+
+/* description */
+.resume-section p:not(.section-number) {
+  color: #a4b7c9 !important;
+
+  line-height: 1.7;
+}
+
+
+/* Open my resume button */
+.resume-section .button-primary {
+  min-width: 170px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #4aa8ff,
+      #417fe7,
+      #6e79f2
+    ) !important;
+
+  border: none !important;
+
+  color: #ffffff !important;
+
+  box-shadow:
+    0 14px 35px rgba(56, 137, 229, 0.22);
+}
+
+
+/* hover */
+.resume-section .button-primary:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 18px 42px rgba(56, 137, 229, 0.30);
+}
+
+
+/* mobile */
+@media (max-width: 700px) {
+  .resume-section {
+    padding:
+      36px 24px !important;
+  }
+
+  .resume-section .button-primary {
+    width: 100%;
+  }
+}
+/* =========================================================
+   CONTACT — GLASS TERMINAL FINAL SECTION
+========================================================= */
+
+.contact-section {
+  position: relative;
+
+  padding:
+    60px 45px !important;
+
+  border:
+    1px solid rgba(82, 169, 255, 0.14) !important;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(8, 22, 38, 0.92),
+      rgba(13, 35, 56, 0.76)
+    );
+
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.16);
+
+  overflow: hidden;
+}
+
+
+/* subtle ambient glow */
+.contact-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  left: -120px;
+  bottom: -130px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(74, 168, 255, 0.07);
+
+  filter: blur(60px);
+
+  pointer-events: none;
+}
+
+
+/* 08 / Contact */
+.contact-section .section-number {
+  color: #55aeff !important;
+}
+
+
+/* Let’s create something useful */
+.contact-section h2 {
+  color: #f5f9fd !important;
+}
+
+
+/* contact intro */
+.contact-copy > p:last-child {
+  color: #a4b7c9 !important;
+
+  line-height: 1.7;
+}
+
+
+/* links area */
+.contact-links {
+  border-top:
+    1px solid rgba(82, 169, 255, 0.14) !important;
+}
+
+
+/* each contact row */
+.contact-links a {
+  border-bottom:
+    1px solid rgba(82, 169, 255, 0.12) !important;
+
+  color: #dce9f4;
+
+  transition:
+    padding 0.25s ease,
+    color 0.25s ease,
+    background 0.25s ease;
+}
+
+
+/* labels */
+.contact-links b {
+  color: #839bb0 !important;
+}
+
+
+/* arrow */
+.contact-links i {
+  color: #55aeff !important;
+}
+
+
+/* hover */
+.contact-links a:hover {
+  padding-left: 14px;
+
+  color: #6db9ff !important;
+
+  background:
+    rgba(74, 168, 255, 0.035);
+}
+
+
+/* mobile */
+@media (max-width: 700px) {
+  .contact-section {
+    padding:
+      38px 24px !important;
+  }
+}
+/* =========================================================
+   FULL PAGE — SECTION CONSISTENCY POLISH
+========================================================= */
+
+/* all major sections */
+.section {
+  border-top:
+    1px solid rgba(82, 169, 255, 0.09) !important;
+
+  position: relative;
+}
+
+
+/* section number:
+   01 / ABOUT
+   02 / EDUCATION
+   etc.
+*/
+.section-number {
+  color: #55aeff !important;
+
+  font-weight: 750;
+
+  letter-spacing: 0.12em;
+}
+
+
+/* all large section headings */
+.section-heading h2 {
+  color: #f4f8fc !important;
+}
+
+
+/* give headings slightly cleaner spacing */
+.section-heading {
+  margin-bottom: 65px;
+}
+
+
+/* subtle line glow near section start */
+.section::before {
+  content: "";
+
+  position: absolute;
+
+  top: -1px;
+  left: 0;
+
+  width: 120px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(74, 168, 255, 0.60),
+      transparent
+    );
+
+  pointer-events: none;
+}
+
+
+/* body text consistency */
+.section p {
+  text-rendering: optimizeLegibility;
+}
+
+
+/* prevent light-theme leftovers */
+.education-section,
+#training,
+#experience,
+#skills,
+#projects {
+  color: var(--text);
+}
+
+
+/* mobile section spacing */
+@media (max-width: 700px) {
+
+  .section {
+    padding-top: 85px;
+    padding-bottom: 85px;
+  }
+
+  .section-heading {
+    margin-bottom: 42px;
+  }
+
+  .section::before {
+    width: 75px;
+  }
+}
+/* =========================================================
+   GAP BETWEEN RESUME AND CONTACT
+========================================================= */
+
+.resume-section {
+  margin-bottom: 34px !important;
+}
+
+.contact-section {
+  margin-top: 0 !important;
+}
+
+
+/* mobile */
+@media (max-width: 700px) {
+  .resume-section {
+    margin-bottom: 24px !important;
+  }
+}
+/* =========================================================
+   GAP BETWEEN RESUME AND CONTACT
+========================================================= */
+
+.resume-section {
+  margin-bottom: 34px !important;
+}
+
+.contact-section {
+  margin-top: 0 !important;
+}
+
+
+/* mobile */
+@media (max-width: 700px) {
+  .resume-section {
+    margin-bottom: 24px !important;
+  }
+}
+/* =========================================================
+   GAP BETWEEN CONTACT AND FOOTER
+========================================================= */
+
+.contact-section {
+  margin-bottom: 36px !important;
+}
+
+footer {
+  margin-top: 0 !important;
+}
+
+
+/* mobile */
+@media (max-width: 700px) {
+  .contact-section {
+    margin-bottom: 24px !important;
+  }
+}
+/* =========================================================
+   INTRO / LOADING — GLASS TERMINAL DARK THEME
+========================================================= */
+
+/* FIRST PORTAL SCREEN */
+.portal-preintro {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(74, 168, 255, 0.16),
+      transparent 36%
+    ),
+    radial-gradient(
+      circle at 75% 30%,
+      rgba(87, 103, 255, 0.08),
+      transparent 32%
+    ),
+    #06101d !important;
+}
+
+
+/* INITIALIZING PORTFOLIO */
+.portal-status-label {
+  color: #59b2ff !important;
+}
+
+
+/* DEVELOPER / DESIGNER / CREATOR / PROBLEM SOLVER */
+.portal-status-cycle span {
+  color: #e8f3ff !important;
+}
+
+
+/* SECOND SIGNATURE SCREEN */
+.signature-intro {
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(74, 168, 255, 0.12),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #06101d,
+      #091827,
+      #07121f
+    ) !important;
+}
+
+
+/* INITIALIZING PORTFOLIO */
+.intro-status {
+  color: #8fa8bf !important;
+}
+
+
+/* glowing status dot */
+.intro-status span {
+  background: #4aa8ff !important;
+
+  box-shadow:
+    0 0 0 6px rgba(74, 168, 255, 0.10),
+    0 0 18px rgba(74, 168, 255, 0.45) !important;
+}
+
+
+/* main Fathima B M name */
+.signature-name {
+  color: #f4f8fc !important;
+
+  -webkit-text-fill-color:
+    #f4f8fc !important;
+
+  text-shadow:
+    0 0 30px rgba(74, 168, 255, 0.08);
+}
+
+
+/* blue sweep across name */
+.signature-name::after {
+  background:
+    linear-gradient(
+      100deg,
+      transparent 30%,
+      #4aa8ff 46%,
+      #8dcaff 50%,
+      #677cff 54%,
+      transparent 70%
+    ) !important;
+}
+
+
+/* WELCOME TO MY WORLD */
+.signature-kicker {
+  color: #59b2ff !important;
+}
+
+
+/* DESIGN · CODE · CREATE · LEARN */
+.signature-subline p {
+  color: #8fa8bf !important;
+}
+
+
+/* small decorative lines */
+.signature-subline span,
+.signature-line,
+.intro-bottom-line {
+  background:
+    rgba(82, 169, 255, 0.28) !important;
+}
+/* =========================================================
+   INTRO NAME — SOFTER LIGHT SWEEP
+========================================================= */
+
+.signature-name::after {
+  background:
+    linear-gradient(
+      100deg,
+      transparent 34%,
+      rgba(74, 168, 255, 0.10) 43%,
+      rgba(111, 183, 255, 0.55) 49%,
+      rgba(119, 128, 255, 0.38) 53%,
+      rgba(74, 168, 255, 0.08) 58%,
+      transparent 68%
+    ) !important;
+
+  filter:
+    blur(1px);
+
+  opacity: 0.88;
+}
+/* =========================================================
+   MOBILE HOME — CLEAN GLASS TERMINAL LAYOUT
+========================================================= */
+
+@media (max-width: 560px) {
+
+  /* keep everything inside phone width */
+  .hero,
+  .portrait-wrap,
+  .portrait-frame {
+    width: 100%;
+    max-width: 100%;
+  }
+
+
+  /* portrait area */
+  .portrait-wrap {
+    min-height: 455px !important;
+
+    margin-top: -5px !important;
+
+    padding-bottom: 20px !important;
+
+    transform: none !important;
+
+    overflow: hidden;
+  }
+
+
+  /* main terminal window behind portrait */
+  .portrait-wrap::before {
+    display: block !important;
+
+    width: 330px !important;
+    height: 335px !important;
+
+    left: 50% !important;
+    right: auto !important;
+
+    top: 55px !important;
+
+    transform:
+      translateX(-50%) !important;
+
+    opacity: 0.78 !important;
+
+    border-radius: 24px !important;
+  }
+
+
+  /* hide desktop terminal text on mobile */
+  .portrait-wrap::after {
+    display: none !important;
+  }
+
+
+  /* portrait */
+  .portrait-frame {
+    min-height: 440px !important;
+
+    transform: none !important;
+  }
+
+  .portrait-frame img {
+    height: 430px !important;
+
+    margin-inline: auto;
+  }
+
+
+  /* remove localhost floating card */
+  .portrait-card::after {
+    display: none !important;
+  }
+
+
+  /* remove tiny index.html/styles.css card */
+  .portrait-wrap .portrait-card::before {
+    display: none !important;
+  }
+
+
+  /* Currently Exploring */
+  .portrait-card {
+    width: 205px !important;
+
+    left: 50% !important;
+    right: auto !important;
+
+    bottom: 30px !important;
+
+    transform:
+      translateX(-50%);
+
+    text-align: left;
+  }
+
+
+  /* BCA badge */
+  .portrait-label {
+    position: relative !important;
+
+    width: fit-content;
+
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+
+    margin:
+      18px auto 0 !important;
+
+    transform: none !important;
+  }
+}
+/* =========================================================
+   MOBILE HOME — REMOVE EXTRA EMPTY SPACE
+========================================================= */
+
+@media (max-width: 560px) {
+
+  .hero {
+    min-height: auto !important;
+
+    padding-bottom: 18px !important;
+
+    gap: 8px !important;
+  }
+
+
+  .portrait-wrap {
+    min-height: 440px !important;
+
+    padding-bottom: 0 !important;
+
+    margin-bottom: 0 !important;
+  }
+
+
+  /* bring About section closer */
+  #about {
+    padding-top: 65px !important;
+  }
+}
+/* =========================================================
+   MOBILE — SHOW NPM TERMINAL INSIDE GLASS FRAME
+========================================================= */
+
+@media (max-width: 560px) {
+
+  /* show terminal text again */
+  .portrait-wrap::after {
+    display: block !important;
+
+    content:
+      "$ npm run dev\A"
+      "> portfolio@1.0.0 dev\A"
+      "✓ Local: localhost:5500\A"
+      "✓ Ready in 412ms";
+
+    white-space: pre;
+
+    position: absolute;
+
+    left: 22px !important;
+    right: auto !important;
+
+    top: 105px !important;
+
+    width: 165px;
+
+    color:
+      rgba(108, 194, 255, 0.72) !important;
+
+    font-family:
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      monospace;
+
+    font-size: 10px !important;
+
+    line-height: 1.8 !important;
+
+    letter-spacing: 0;
+
+    opacity: 0.8 !important;
+
+    text-shadow:
+      0 0 10px
+      rgba(74, 168, 255, 0.18) !important;
+
+    z-index: 1;
+
+    pointer-events: none;
+  }
+
+
+  /* person stays in front */
+  .portrait-frame img {
+    position: relative;
+    z-index: 5;
+  }
+
+
+  /* glass terminal frame stays behind everything */
+  .portrait-wrap::before {
+    z-index: 0 !important;
+  }
+
+
+  /* Currently Exploring stays in front */
+  .portrait-card {
+    z-index: 7 !important;
+  }
+}
+/* =========================================================
+   MOBILE — BRING BACK ONE MINI TERMINAL CARD
+========================================================= */
+
+@media (max-width: 560px) {
+
+  /* show localhost mini card */
+  .portrait-card::after {
+    display: block !important;
+
+    content:
+      "•  •  •\A"
+      "localhost:3000\A"
+      "────────";
+
+    white-space: pre;
+
+    width: 118px !important;
+    height: 68px !important;
+
+    right: -12px !important;
+    left: auto !important;
+
+    top: -165px !important;
+
+    padding: 12px 14px !important;
+
+    border-radius: 16px !important;
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(8, 24, 40, 0.94),
+        rgba(13, 39, 63, 0.90)
+      ) !important;
+
+    border:
+      1px solid rgba(82, 169, 255, 0.18) !important;
+
+    color:
+      rgba(102, 190, 255, 0.78) !important;
+
+    font-size: 9px !important;
+    line-height: 1.6 !important;
+
+    opacity: 0.82 !important;
+
+    z-index: 6 !important;
+
+    box-shadow:
+      0 12px 30px rgba(0, 0, 0, 0.18) !important;
+  }
+
+
+  /* keep index.html / styles.css card hidden */
+  .portrait-wrap .portrait-card::before {
+    display: none !important;
+  }
+}
+/* =========================================================
+   MOBILE HOME — FULL DESKTOP TERMINAL DETAILS
+   EVERYTHING FITS INSIDE PHONE
+========================================================= */
+
+@media (max-width: 560px) {
+
+  /* =====================================================
+     MAIN PORTRAIT / TERMINAL AREA
+  ===================================================== */
+
+  .portrait-wrap {
+    position: relative;
+
+    width: 100%;
+    max-width: 100%;
+
+    min-height: 470px !important;
+
+    overflow: hidden !important;
+
+    margin-top: -5px !important;
+    padding-bottom: 0 !important;
+
+    transform: none !important;
+  }
+
+
+  /* main glass terminal frame */
+  .portrait-wrap::before {
+    display: block !important;
+
+    width: calc(100% - 20px) !important;
+    max-width: 330px !important;
+    height: 365px !important;
+
+    left: 50% !important;
+    right: auto !important;
+
+    top: 45px !important;
+
+    transform:
+      translateX(-50%) !important;
+
+    border-radius: 24px !important;
+
+    opacity: 0.84 !important;
+
+    z-index: 0 !important;
+  }
+
+
+  /* =====================================================
+     $ npm run dev CONTENT
+  ===================================================== */
+
+  .portrait-wrap::after {
+    display: block !important;
+
+    content:
+      "$ npm run dev\A"
+      "> portfolio@1.0.0 dev\A"
+      "✓ Local: localhost:5500\A"
+      "✓ Ready in 412ms";
+
+    white-space: pre;
+
+    position: absolute;
+
+    left: 25px !important;
+    right: auto !important;
+    top: 88px !important;
+
+    width: 145px !important;
+
+    color:
+      rgba(102, 190, 255, 0.70) !important;
+
+    font-family:
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      monospace;
+
+    font-size: 8.5px !important;
+    line-height: 1.8 !important;
+
+    opacity: 0.82 !important;
+
+    text-shadow:
+      0 0 10px rgba(74, 168, 255, 0.18);
+
+    z-index: 1 !important;
+
+    pointer-events: none;
+  }
+
+
+  /* =====================================================
+     PORTRAIT
+  ===================================================== */
+
+  .portrait-frame {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    min-height: 450px !important;
+
+    transform: none !important;
+  }
+
+  .portrait-frame img {
+    position: relative;
+
+    height: 430px !important;
+
+    margin-inline: auto;
+
+    z-index: 5 !important;
+  }
+
+
+  /* =====================================================
+     CURRENTLY EXPLORING
+  ===================================================== */
+
+  .portrait-card {
+    width: 195px !important;
+
+    left: 50% !important;
+    right: auto !important;
+
+    bottom: 23px !important;
+
+    transform:
+      translateX(-50%) !important;
+
+    z-index: 8 !important;
+  }
+
+
+  /* =====================================================
+     LOCALHOST MINI CARD
+     upper-right but INSIDE phone
+  ===================================================== */
+
+  .portrait-card::after {
+    display: block !important;
+
+    content:
+      "•  •  •\A"
+      "localhost:3000\A"
+      "────────";
+
+    white-space: pre;
+
+    position: absolute;
+
+    width: 108px !important;
+    height: 66px !important;
+
+    right: 0 !important;
+    left: auto !important;
+
+    top: -178px !important;
+    bottom: auto !important;
+
+    padding: 11px 12px !important;
+
+    border-radius: 15px !important;
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(7, 22, 37, 0.96),
+        rgba(12, 38, 61, 0.92)
+      ) !important;
+
+    border:
+      1px solid rgba(82, 169, 255, 0.18) !important;
+
+    color:
+      rgba(102, 190, 255, 0.76) !important;
+
+    font-family:
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      monospace;
+
+    font-size: 8px !important;
+    line-height: 1.55 !important;
+
+    opacity: 0.85 !important;
+
+    box-shadow:
+      0 12px 28px rgba(0, 0, 0, 0.17) !important;
+
+    z-index: 6 !important;
+  }
+
+
+  /* =====================================================
+     FILE MINI CARD
+     { }
+     index.html
+     styles.css
+  ===================================================== */
+
+  .portrait-wrap .portrait-card::before {
+    display: block !important;
+
+    content:
+      "{ }\A"
+      "index.html\A"
+      "styles.css";
+
+    white-space: pre;
+
+    position: absolute;
+
+    width: 100px !important;
+    height: 76px !important;
+
+    left: 0 !important;
+    right: auto !important;
+
+    top: -92px !important;
+    bottom: auto !important;
+
+    padding: 11px 12px !important;
+
+    border-radius: 15px !important;
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(7, 22, 37, 0.96),
+        rgba(12, 38, 61, 0.92)
+      ) !important;
+
+    border:
+      1px solid rgba(82, 169, 255, 0.17) !important;
+
+    color:
+      rgba(102, 190, 255, 0.72) !important;
+
+    font-family:
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      monospace;
+
+    font-size: 8px !important;
+    line-height: 1.5 !important;
+
+    opacity: 0.78 !important;
+
+    box-shadow:
+      0 12px 28px rgba(0, 0, 0, 0.15) !important;
+
+    z-index: 6 !important;
+  }
+}
+/* =========================================================
+   MOBILE — MOVE MINI CARDS AWAY FROM PORTRAIT
+========================================================= */
+
+@media (max-width: 560px) {
+
+  /* localhost card → upper right side */
+  .portrait-card::after {
+    right: -52px !important;
+    left: auto !important;
+
+    top: -150px !important;
+
+    width: 105px !important;
+    height: 64px !important;
+  }
+
+
+  /* file card → lower left side */
+  .portrait-wrap .portrait-card::before {
+    left: -48px !important;
+    right: auto !important;
+
+    top: -42px !important;
+
+    width: 96px !important;
+    height: 72px !important;
+  }
+
+
+  /* Currently Exploring stays centered below */
+  .portrait-card {
+    width: 195px !important;
+
+    left: 50% !important;
+    right: auto !important;
+
+    bottom: 20px !important;
+
+    transform: translateX(-50%) !important;
+  }
+}
+/* =========================================================
+   MOBILE — MOVE CURRENTLY EXPLORING TO THE SIDE
+========================================================= */
+
+@media (max-width: 560px) {
+
+  .portrait-card {
+    width: 180px !important;
+
+    left: auto !important;
+    right: 10px !important;
+
+    bottom: 22px !important;
+
+    transform: none !important;
+
+    z-index: 8 !important;
+  }
+
+}
+/* =========================================================
+   MOBILE — SEPARATE ALL FLOATING CARDS
+========================================================= */
+
+@media (max-width: 560px) {
+
+  /* give portrait area a little more height */
+  .portrait-wrap {
+    min-height: 500px !important;
+  }
+
+
+  /* localhost card — upper right */
+  .portrait-card::after {
+    width: 96px !important;
+    height: 62px !important;
+
+    right: -34px !important;
+    left: auto !important;
+
+    top: -185px !important;
+
+    padding: 10px !important;
+
+    font-size: 7.5px !important;
+  }
+
+
+  /* file card — lower left */
+  .portrait-wrap .portrait-card::before {
+    width: 88px !important;
+    height: 70px !important;
+
+    left: -62px !important;
+    right: auto !important;
+
+    top: -60px !important;
+
+    padding: 10px !important;
+
+    font-size: 7.5px !important;
+  }
+
+
+  /* Currently Exploring — lower right */
+  .portrait-card {
+    width: 170px !important;
+
+    left: auto !important;
+    right: -2px !important;
+
+    bottom: 16px !important;
+
+    transform: none !important;
+  }
+
+
+  /* keep enough spacing between cards */
+  .portrait-card,
+  .portrait-card::after,
+  .portrait-wrap .portrait-card::before {
+    box-sizing: border-box;
+  }
+}
+/* =========================================================
+   MOBILE — FINAL SAFE CARD POSITIONS
+   KEEP EVERYTHING INSIDE PHONE
+========================================================= */
+
+@media (max-width: 560px) {
+
+  /* Currently Exploring — lower right, fully inside */
+  .portrait-card {
+    width: 155px !important;
+
+    left: auto !important;
+    right: 12px !important;
+
+    bottom: 22px !important;
+
+    transform: none !important;
+
+    padding: 14px !important;
+  }
+
+
+  /* localhost — upper right */
+  .portrait-card::after {
+    width: 88px !important;
+    height: 58px !important;
+
+    left: 30px !important;
+    right: auto !important;
+
+    top: -185px !important;
+
+    padding: 9px !important;
+
+    font-size: 7px !important;
+  }
+
+
+  /* index.html / styles.css — lower left */
+  .portrait-wrap .portrait-card::before {
+    width: 82px !important;
+    height: 64px !important;
+
+    left: -185px !important;
+    right: auto !important;
+
+    top: -55px !important;
+
+    padding: 9px !important;
+
+    font-size: 7px !important;
+  }
+
+
+  /* important: nothing may escape phone width */
+  .portrait-wrap {
+    overflow: hidden !important;
+  }
+}
+/* MOBILE — MOVE FILE CARD SLIGHTLY INWARD */
+
+@media (max-width: 560px) {
+
+  .portrait-wrap .portrait-card::before {
+    left: -165px !important;
+  }
+
 }
