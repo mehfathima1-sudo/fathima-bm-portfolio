@@ -12004,3 +12004,17 @@ footer {
   }
 
 }
+/* =========================================================
+   DESKTOP — MOVE FILE CARD TO LEFT SIDE
+========================================================= */
+
+@media (min-width: 701px) {
+
+  .portrait-wrap .portrait-card::before {
+    left: -320px !important;
+    right: auto !important;
+
+    bottom: -110px !important;
+  }
+
+}
