@@ -7438,3 +7438,145 @@ footer.phase6-footer-active {
   }
 
 }
+/* =========================================================
+   FINAL MOBILE WIDTH FIX
+========================================================= */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+@media (max-width: 560px) {
+
+  /* Restore the correct container width */
+  .hero.container {
+    width: calc(100% - 28px);
+    max-width: calc(100% - 28px);
+
+    margin-left: auto;
+    margin-right: auto;
+
+    grid-template-columns: minmax(0, 1fr);
+
+    overflow: visible;
+  }
+
+
+  /* Grid children MUST be allowed to shrink */
+  .hero-copy,
+  .portrait-wrap,
+  .portrait-frame {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+
+  /* HERO NAME */
+  .hero-copy h1 {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: clamp(2.65rem, 13vw, 3.5rem);
+
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+  }
+
+
+  .hero-copy h1 span {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    white-space: normal;
+  }
+
+
+  /* ROLE */
+  .animated-role {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: 1.08rem;
+
+    line-height: 1.4;
+
+    overflow-wrap: break-word;
+  }
+
+
+  /* DESCRIPTION */
+  .hero-text {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: 1rem;
+
+    line-height: 1.6;
+
+    overflow-wrap: break-word;
+  }
+
+
+  /* BUTTONS */
+  .hero-actions {
+    width: 100%;
+    max-width: 100%;
+
+    gap: 10px;
+  }
+
+
+  .hero-actions .button {
+    min-width: 0;
+
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+
+  /* SOCIAL LINKS */
+  .quick-links {
+    width: 100%;
+    max-width: 100%;
+  }
+
+
+  /* PHOTO AREA */
+  .portrait-wrap,
+  .portrait-frame {
+    width: 100%;
+  }
+
+
+  .portrait-frame img {
+    max-width: 100%;
+  }
+
+}
+
+
+@media (max-width: 390px) {
+
+  .hero-copy h1 {
+    font-size: 2.65rem;
+  }
+
+  .hero-actions .button {
+    font-size: 0.88rem;
+  }
+
+}
+@media (max-width: 560px) {
+
+  .signature-name {
+    font-size: clamp(2.8rem, 13vw, 4.6rem);
+    white-space: nowrap;
+    letter-spacing: -0.06em;
+  }
+
+}
