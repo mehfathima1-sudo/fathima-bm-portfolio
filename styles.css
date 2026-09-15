@@ -1050,7 +1050,7 @@ footer { border-top: 1px solid var(--line); }
 
 .journey-stage span {
   display: inline-flex;
-
+margin-left: 18px;
   padding: 7px 12px;
 
   border: 1px solid var(--line);
@@ -1282,6 +1282,7 @@ footer { border-top: 1px solid var(--line); }
 
 .journey-important::before {
   left: 105px;
+  top: 19px;
 }
 
 
@@ -12015,6 +12016,393 @@ footer {
     right: auto !important;
 
     bottom: -110px !important;
+  }
+
+}
+/* =========================================================
+   FINAL PHONE LAYOUT CORRECTION
+   DESKTOP IS NOT CHANGED
+========================================================= */
+
+@media (max-width: 700px) {
+
+  /* -------------------------------------------------------
+     MOBILE NAVIGATION
+  ------------------------------------------------------- */
+
+  .site-header {
+    z-index: 9999 !important;
+  }
+
+  .nav {
+    position: relative !important;
+  }
+
+  .menu-button {
+    display: block !important;
+    position: relative !important;
+    z-index: 10001 !important;
+  }
+
+  /* Menu is completely hidden until hamburger is clicked */
+  .nav-links {
+    display: none !important;
+
+    position: fixed !important;
+    top: 78px !important;
+    left: 14px !important;
+    right: 14px !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 12px !important;
+
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 3px !important;
+
+    background: #071523 !important;
+
+    border: 1px solid rgba(74, 168, 255, 0.22) !important;
+    border-radius: 18px !important;
+
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.5) !important;
+
+    z-index: 10000 !important;
+
+    overflow: hidden !important;
+  }
+
+  .nav-links.open {
+    display: flex !important;
+  }
+
+  .nav-links a {
+    display: block !important;
+
+    width: 100% !important;
+
+    padding: 12px 16px !important;
+    margin: 0 !important;
+
+    font-size: 1rem !important;
+    line-height: 1.3 !important;
+
+    color: #a9b9ca !important;
+
+    border-radius: 10px !important;
+
+    transform: none !important;
+  }
+
+  .nav-links a::after {
+    display: none !important;
+  }
+
+  .nav-links a.nav-active {
+    color: #ffffff !important;
+    background: rgba(74, 168, 255, 0.09) !important;
+
+    padding-left: 34px !important;
+  }
+
+  .nav-links a.nav-active::before {
+    content: "" !important;
+
+    position: absolute !important;
+
+    left: 16px !important;
+    top: 50% !important;
+    bottom: auto !important;
+
+    width: 7px !important;
+    height: 7px !important;
+
+    transform: translateY(-50%) !important;
+
+    border-radius: 50% !important;
+    background: #4aa8ff !important;
+
+    box-shadow: 0 0 10px rgba(74, 168, 255, 0.65) !important;
+  }
+
+
+  /* -------------------------------------------------------
+   JOURNEY / EDUCATION — CORRECT MOBILE PLACEMENT
+------------------------------------------------------- */
+
+.education-journey {
+  position: relative !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  overflow: visible !important;
+}
+
+
+/* Vertical timeline */
+.education-journey::before {
+  left: 15px !important;
+}
+
+
+/* Each education stage */
+.journey-item {
+  position: relative !important;
+
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+
+  gap: 18px !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  padding: 38px 18px 38px 45px !important;
+
+  box-sizing: border-box !important;
+
+  overflow: visible !important;
+}
+
+
+/* Timeline dot */
+.journey-item::before {
+  left: 10px !important;
+  top: 45px !important;
+
+  z-index: 5 !important;
+}
+
+
+/* Animated ring around active dot */
+.journey-item.journey-active::after {
+  left: 7px !important;
+  top: 42px !important;
+}
+
+
+/* +1 / +2 and 2024—2027 pills */
+.journey-stage {
+  position: relative !important;
+
+  width: fit-content !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  left: auto !important;
+  right: auto !important;
+
+  transform: none !important;
+
+  z-index: 3 !important;
+}
+
+
+.journey-stage span {
+  display: inline-flex !important;
+
+  width: auto !important;
+
+  margin: 0 !important;
+
+  white-space: nowrap !important;
+}
+
+
+/* Education information */
+.journey-content {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  box-sizing: border-box !important;
+}
+
+
+.journey-content h3 {
+  max-width: 100% !important;
+
+  font-size: 1.45rem !important;
+  line-height: 1.12 !important;
+
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+
+
+/* BCA tag beside heading */
+.journey-short {
+  display: inline-block !important;
+
+  margin-left: 6px !important;
+
+  vertical-align: middle !important;
+}
+
+
+/* Higher-secondary special white card */
+.journey-important {
+  padding: 38px 18px 38px 45px !important;
+}
+
+
+/* Score/story box */
+.journey-discovery {
+  grid-template-columns: 1fr !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+}
+
+
+.journey-score {
+  padding-right: 0 !important;
+  padding-bottom: 16px !important;
+
+  border-right: 0 !important;
+  border-bottom: 1px solid var(--line) !important;
+}
+
+
+/* Malayalam → Kannada etc. */
+.journey-change {
+  width: calc(100% - 35px) !important;
+
+  margin-left: 35px !important;
+
+  box-sizing: border-box !important;
+}
+
+
+/* Commerce → Discovered BCA */
+.journey-decision {
+  width: calc(100% - 35px) !important;
+
+  margin-left: 20px !important;
+
+  box-sizing: border-box !important;
+}
+  /* -------------------------------------------------------
+     EXPERIENCE / INTERNSHIP MOBILE
+  ------------------------------------------------------- */
+
+  .internship-card {
+    display: grid !important;
+
+    grid-template-columns: 1fr !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    overflow: hidden !important;
+  }
+
+  /* Internship + April 2026 */
+  .internship-side {
+    width: 100% !important;
+
+    padding: 28px 24px 10px !important;
+
+    border-right: 0 !important;
+
+    box-sizing: border-box !important;
+  }
+
+  .internship-content {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    padding: 24px !important;
+
+    box-sizing: border-box !important;
+  }
+
+  .internship-content h3 {
+    font-size: clamp(2rem, 9vw, 2.7rem) !important;
+    line-height: 1.08 !important;
+
+    overflow-wrap: break-word !important;
+  }
+
+  .internship-description {
+    max-width: 100% !important;
+  }
+
+  /* Duration / Mode / Domain */
+  .internship-details {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+
+    width: 100% !important;
+
+    margin-top: 28px !important;
+  }
+
+  .internship-details > div {
+    width: 100% !important;
+
+    padding: 18px 0 !important;
+
+    box-sizing: border-box !important;
+  }
+
+  /* Skills */
+  .education-tags {
+    display: flex !important;
+    flex-wrap: wrap !important;
+
+    width: 100% !important;
+
+    gap: 8px !important;
+  }
+
+  /* Certificate */
+  .certificate-area {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin-top: 30px !important;
+  }
+
+  .certificate-link {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    box-sizing: border-box !important;
+  }
+}
+
+
+/* Extra safety for very small phones such as iPhone SE */
+@media (max-width: 390px) {
+
+  .internship-side,
+  .internship-content {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .journey-content h3 {
+    font-size: 1.75rem !important;
+  }
+
+  .internship-content h3 {
+    font-size: 2rem !important;
   }
 
 }
