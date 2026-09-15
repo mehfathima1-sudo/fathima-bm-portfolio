@@ -12405,4 +12405,42 @@ footer {
     font-size: 2rem !important;
   }
 
+}/* =========================================
+   FINAL DESKTOP ALIGNMENT FIXES
+========================================= */
+
+/* BCA year badge — keep inside card without touching the dot */
+.journey-current .journey-stage span {
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 0.61rem;
+}
+
+/* Internship left column — move content away from border */
+.internship-side {
+  padding-left: 26px;
+  box-sizing: border-box;
+}
+
+/* Give internship card the same polished card shape */
+.internship-card {
+  border-radius: 24px;
+  overflow: hidden;
+}
+.journey-current::before {
+  top: 15px;
+}
+/* BCA section final alignment */
+
+.journey-current .journey-stage {
+  padding-top: 45px;
+}
+
+.journey-current .journey-stage span {
+  margin-left: 8px;
+}
+
+.journey-current::before {
+  top: 54px;
 }
